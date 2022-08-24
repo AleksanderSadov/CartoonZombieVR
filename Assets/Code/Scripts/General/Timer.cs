@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,8 +6,11 @@ namespace CartoonZombieVR.General
 {
     public class Timer : MonoBehaviour
     {
-        public bool startTimerOnAwake = false;
+        public bool setDurationInScript = false;
+        [HideIf("setDurationInScript")]
         public float timerDuration = 10;
+        [HideIf("setDurationInScript")]
+        public bool startTimerOnAwake = false;
 
         public UnityEvent timerStarted;
         public UnityEvent timerFinished;

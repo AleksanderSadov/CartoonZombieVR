@@ -1874,8 +1874,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ec7bed6c019b54c9613b6373656a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimerOnAwake: 0
+  setDurationInScript: 1
   timerDuration: 10
+  startTimerOnAwake: 0
   timerStarted:
     m_PersistentCalls:
       m_Calls: []
