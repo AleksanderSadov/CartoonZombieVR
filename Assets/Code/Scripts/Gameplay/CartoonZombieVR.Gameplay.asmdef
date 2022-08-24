@@ -1,0 +1,17 @@
+{
+    "name": "CartoonZombieVR.Gameplay",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b257245007bd01b4cbcb6a4408219db6",
+        "GUID:08c37921f9d44a64a96ea5c88340937e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
