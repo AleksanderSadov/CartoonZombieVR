@@ -20,4 +20,6 @@ MonoBehaviour:
   movementAutoBraking: 1
   attackRange: 4
   attackAngle: 20
-  attackSpeed: 0.8
+  attackSpeed: 0.6
+  health: 100
+  destroyAfterDeathSeconds: 10

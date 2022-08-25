@@ -10,6 +10,7 @@ namespace CartoonZombieVR.Gameplay
             FindTarget,
             Follow,
             Attack,
+            Dead,
         }
 
         public AIState aiState;
@@ -20,12 +21,18 @@ namespace CartoonZombieVR.Gameplay
         {
             enemyController = GetComponent<EnemyController>();
             aiState = AIState.FindTarget;
+            enemyController.OnDeath += OnDeath;
         }
 
         private void Update()
         {
             UpdateAiStateTransitions();
             UpdateCurrentAiState();
+        }
+
+        private void OnDestroy()
+        {
+            enemyController.OnDeath -= OnDeath;
         }
 
         private void UpdateAiStateTransitions()
@@ -75,6 +82,11 @@ namespace CartoonZombieVR.Gameplay
                     enemyController.TryNewAttackPosition();
                     break;
             }
+        }
+
+        private void OnDeath()
+        {
+            aiState = AIState.Dead;
         }
     }
 }

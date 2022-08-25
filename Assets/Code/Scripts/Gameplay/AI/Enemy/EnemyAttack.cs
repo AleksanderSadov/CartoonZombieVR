@@ -1,20 +1,20 @@
-using CartoonZombieVR.ScriptableObjects;
 using UnityEngine;
 
 namespace CartoonZombieVR.Gameplay
 {
+    [RequireComponent(typeof(Enemy))]
     [RequireComponent(typeof(Animator))]
     public class EnemyAttack : MonoBehaviour
     {
-        public EnemyConfig enemyConfig;
-
+        private Enemy enemy;
         private Animator animator;
 
         private void Awake()
         {
+            enemy = GetComponent<Enemy>();
             animator = GetComponent<Animator>();
             UpdateAttackSpeedFromConfig();
-            enemyConfig.OnConfigValuesChanged += UpdateAttackSpeedFromConfig;
+            enemy.config.OnConfigValuesChanged += UpdateAttackSpeedFromConfig;
         }
 
         public void StartAttack()
@@ -29,7 +29,7 @@ namespace CartoonZombieVR.Gameplay
 
         private void UpdateAttackSpeedFromConfig()
         {
-            animator.SetFloat("AttackSpeed", enemyConfig.attackSpeed);
+            animator.SetFloat("AttackSpeed", enemy.config.attackSpeed);
         }
     }
 }

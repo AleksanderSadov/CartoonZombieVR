@@ -1,24 +1,24 @@
-using CartoonZombieVR.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace CartoonZombieVR.Gameplay
 {
+    [RequireComponent(typeof(Enemy))]
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(Animator))]
     public class EnemyMovement : MonoBehaviour
     {
-        public EnemyConfig enemyConfig;
-
+        private Enemy enemy;
         private NavMeshAgent navMeshAgent;
         private Animator animator;
 
         private void Awake()
         {
+            enemy = GetComponent<Enemy>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
             UpdateNavMeshFromConfig();
-            enemyConfig.OnConfigValuesChanged += UpdateNavMeshFromConfig;
+            enemy.config.OnConfigValuesChanged += UpdateNavMeshFromConfig;
         }
 
         private void Update()
@@ -69,13 +69,13 @@ namespace CartoonZombieVR.Gameplay
 
         private void UpdateNavMeshFromConfig()
         {
-            if (enemyConfig.overrideEnemyNavMeshValues)
+            if (enemy.config.overrideEnemyNavMeshValues)
             {
-                navMeshAgent.speed = enemyConfig.movementSpeed;
-                navMeshAgent.angularSpeed = enemyConfig.movementAngularSpeed;
-                navMeshAgent.acceleration = enemyConfig.movementAcceleration;
-                navMeshAgent.stoppingDistance = enemyConfig.movementStoppingDistance;
-                navMeshAgent.autoBraking = enemyConfig.movementAutoBraking;
+                navMeshAgent.speed = enemy.config.movementSpeed;
+                navMeshAgent.angularSpeed = enemy.config.movementAngularSpeed;
+                navMeshAgent.acceleration = enemy.config.movementAcceleration;
+                navMeshAgent.stoppingDistance = enemy.config.movementStoppingDistance;
+                navMeshAgent.autoBraking = enemy.config.movementAutoBraking;
             }
         }
     }

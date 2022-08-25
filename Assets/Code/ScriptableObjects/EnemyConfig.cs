@@ -25,6 +25,10 @@ namespace CartoonZombieVR.ScriptableObjects
         public float attackAngle = 20.0f;
         public float attackSpeed = 1.0f;
 
+        [Header("Health")]
+        public float health = 100.0f;
+        public float destroyAfterDeathSeconds = 10.0f;
+
         [Header("Events")]
         public UnityAction OnConfigValuesChanged;
 
