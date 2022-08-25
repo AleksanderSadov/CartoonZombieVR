@@ -4,6 +4,7 @@ using UnityEngine.AI;
 namespace CartoonZombieVR.Gameplay
 {
     [RequireComponent(typeof(EnemyMovement))]
+    [RequireComponent(typeof(EnemyAttack))]
     [RequireComponent(typeof(FindTargetSensor))]
     [RequireComponent(typeof(SightSensor))]
     public class EnemyController : MonoBehaviour
@@ -14,12 +15,14 @@ namespace CartoonZombieVR.Gameplay
         public bool isTargetInAttackAngle => sightSensor.isTargetInAttackAngle;
 
         private EnemyMovement movement;
+        private EnemyAttack attack;
         private FindTargetSensor findTargetSensor;
         private SightSensor sightSensor;
 
         private void Awake()
         {
             movement = GetComponent<EnemyMovement>();
+            attack = GetComponent<EnemyAttack>();
             findTargetSensor = GetComponent<FindTargetSensor>();
             sightSensor = GetComponent<SightSensor>();
         }
@@ -28,10 +31,22 @@ namespace CartoonZombieVR.Gameplay
         public void FollowTarget(GameObject target) => movement.SetNavDestination(target.transform.position);
         public void ResetDestination() => movement.ResetDestination();
         public void OrientTowards(Vector3 lookPosition) => movement.OrientTowards(lookPosition);
+        public void StartAttack() => attack.StartAttack();
+        public void StopAttack() => attack.StopAttack();
 
         public void TryAttack()
         {
+            if (
+                currentTarget == null
+                || !isTargetInAttackRange
+                || !isTargetInAttackAngle
+            )
+            {
+                StopAttack();
+                return;
+            }
 
+            StartAttack();
         }
 
         public void TryNewAttackPosition()

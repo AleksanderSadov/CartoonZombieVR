@@ -4,6 +4,7 @@ using UnityEngine.AI;
 namespace CartoonZombieVR.Gameplay
 {
     [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(Animator))]
     public class EnemyMovement : MonoBehaviour
     {
         private NavMeshAgent navMeshAgent;

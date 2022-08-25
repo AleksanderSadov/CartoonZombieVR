@@ -53,6 +53,7 @@ namespace CartoonZombieVR.Gameplay
                     )
                     {
                         aiState = AIState.FindTarget;
+                        enemyController.StopAttack();
                     }
                     break;
             }
