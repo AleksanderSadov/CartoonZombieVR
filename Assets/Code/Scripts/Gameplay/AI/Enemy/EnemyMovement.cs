@@ -7,10 +7,17 @@ namespace CartoonZombieVR.Gameplay
     public class EnemyMovement : MonoBehaviour
     {
         private NavMeshAgent navMeshAgent;
+        private Animator animator;
 
         private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
+        }
+
+        private void Update()
+        {
+            animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         }
 
         public void SetNavDestination(Vector3 destination)
