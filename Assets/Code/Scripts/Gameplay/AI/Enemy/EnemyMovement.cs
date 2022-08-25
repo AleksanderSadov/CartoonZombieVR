@@ -1,3 +1,4 @@
+using CartoonZombieVR.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,8 @@ namespace CartoonZombieVR.Gameplay
     [RequireComponent(typeof(Animator))]
     public class EnemyMovement : MonoBehaviour
     {
+        public EnemyConfig enemyConfig;
+
         private NavMeshAgent navMeshAgent;
         private Animator animator;
 
@@ -14,6 +17,8 @@ namespace CartoonZombieVR.Gameplay
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
+            UpdateNavMeshFromConfig();
+            enemyConfig.OnConfigValuesChanged += UpdateNavMeshFromConfig;
         }
 
         private void Update()
@@ -60,6 +65,18 @@ namespace CartoonZombieVR.Gameplay
             }
 
             return false;
+        }
+
+        private void UpdateNavMeshFromConfig()
+        {
+            if (enemyConfig.overrideEnemyNavMeshValues)
+            {
+                navMeshAgent.speed = enemyConfig.movementSpeed;
+                navMeshAgent.angularSpeed = enemyConfig.movementAngularSpeed;
+                navMeshAgent.acceleration = enemyConfig.movementAcceleration;
+                navMeshAgent.stoppingDistance = enemyConfig.movementStoppingDistance;
+                navMeshAgent.autoBraking = enemyConfig.movementAutoBraking;
+            }
         }
     }
 }

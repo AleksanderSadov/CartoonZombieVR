@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d7f8c8fee87b547a3df5f83bccc182, type: 3}
   m_Name: ZombieConfig
   m_EditorClassIdentifier: 
-  attackRange: 1
+  overrideEnemyNavMeshValues: 1
+  movementSpeed: 2
+  movementAngularSpeed: 120
+  movementAcceleration: 1
+  movementStoppingDistance: 4
+  movementAutoBraking: 1
+  attackRange: 2
   attackAngle: 20
