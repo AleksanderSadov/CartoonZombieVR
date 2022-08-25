@@ -18,5 +18,6 @@ MonoBehaviour:
   movementAcceleration: 1
   movementStoppingDistance: 4
   movementAutoBraking: 1
-  attackRange: 2
+  attackRange: 4
   attackAngle: 20
+  attackSpeed: 0.8
