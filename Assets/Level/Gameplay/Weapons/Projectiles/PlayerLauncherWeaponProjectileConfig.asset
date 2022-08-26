@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c7022799893c01479db7eaf7b309969, type: 3}
-  m_Name: PlayerWeaponProjectile
+  m_Name: PlayerLauncherWeaponProjectileConfig
   m_EditorClassIdentifier: 
+  generalConfig: {fileID: 11400000, guid: 481fa852295d56a4c80208d6bc759036, type: 2}
+  projectilePrefab: {fileID: 9031775881104408046, guid: 4251ab78ddc2ffa4ea633732417a2c54,
+    type: 3}
   targetTag: Enemy
   damage: 25
+  minimumProjectileVelocityToInflictDamage: 1

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb393ff44da2e74d876bfb9b24035d6, type: 3}
+  m_Name: PlayerLauncherWeaponConfig
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 9031775881104408046, guid: 4251ab78ddc2ffa4ea633732417a2c54,
+    type: 3}
+  launchSpeed: 500
+  reloadDuration: 1

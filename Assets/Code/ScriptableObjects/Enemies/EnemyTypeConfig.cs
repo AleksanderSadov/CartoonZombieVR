@@ -7,6 +7,8 @@ namespace CartoonZombieVR.ScriptableObjects
     [CreateAssetMenu(fileName = "EnemyTypeConfig", menuName = "ScriptableObjects/EnemyTypeConfig", order = 220)]
     public class EnemyTypeConfig : ScriptableObject
     {
+        public EnemyGeneralConfig generalConfig;
+
         [Header("Movement")]
         public bool overrideEnemyNavMeshValues = false;
         [ShowIf("overrideEnemyNavMeshValues")]

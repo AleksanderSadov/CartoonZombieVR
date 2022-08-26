@@ -6,23 +6,24 @@ namespace CartoonZombieVR.Gameplay
     [RequireComponent(typeof(Rigidbody))]
     public class WeaponProjectile : MonoBehaviour
     {
-        public WeaponProjectileConfig config;
+        public WeaponProjectileConfig typeConfig;
 
         private Rigidbody rigidBody;
 
         private void Start()
         {
             rigidBody = GetComponent<Rigidbody>();
+            Destroy(gameObject, typeConfig.generalConfig.lifetime);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (rigidBody.velocity.magnitude < config.minimumProjectileVelocityToInflictDamage)
+            if (rigidBody.velocity.magnitude < typeConfig.minimumProjectileVelocityToInflictDamage)
             {
                 return;
             }
 
-            if (!collision.collider.CompareTag(config.targetTag))
+            if (!collision.collider.CompareTag(typeConfig.targetTag))
             {
                 return;
             }
@@ -33,7 +34,7 @@ namespace CartoonZombieVR.Gameplay
                 return;
             }
 
-            health.TakeDamage(config.damage);
+            health.TakeDamage(typeConfig.damage);
         }
     }
 }

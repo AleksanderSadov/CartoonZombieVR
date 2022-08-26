@@ -94,8 +94,8 @@ namespace CartoonZombieVR.Gameplay
             animator.SetTrigger("TakeDamage");
 
             SkinnedMeshRenderer renderer = GetComponentInChildren<SkinnedMeshRenderer>();
-            StartCoroutine(ChangeEnemyColor(renderer, renderer.material.color, enemy.generalConfig.flashOnGetHitDuration));
-            renderer.material.color = enemy.generalConfig.flashOnGetHitColor;
+            StartCoroutine(ChangeEnemyColor(renderer, renderer.material.color, enemy.typeConfig.generalConfig.flashOnGetHitDuration));
+            renderer.material.color = enemy.typeConfig.generalConfig.flashOnGetHitColor;
         }
 
         private void OnHealthDeath()
@@ -103,7 +103,7 @@ namespace CartoonZombieVR.Gameplay
             animator.SetTrigger("Die");
             StopAttack();
             ResetDestination();
-            Destroy(gameObject, enemy.generalConfig.destroyAfterDeathSeconds);
+            Destroy(gameObject, enemy.typeConfig.generalConfig.destroyAfterDeathSeconds);
             OnDeath?.Invoke();
         }
 

@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d7f8c8fee87b547a3df5f83bccc182, type: 3}
   m_Name: ZombieBasicConfig
   m_EditorClassIdentifier: 
-  flashOnGetHitMaterial: {fileID: 2100000, guid: b7695abf6cf1b1e48a80038ab5f47990,
-    type: 2}
-  flashOnGetHitDuration: 0.25
-  destroyAfterDeathSeconds: 10
+  generalConfig: {fileID: 11400000, guid: 9d65fed6f5b990c43a1c562e32b169ff, type: 2}
   overrideEnemyNavMeshValues: 1
   movementSpeed: 2
   movementAngularSpeed: 120
