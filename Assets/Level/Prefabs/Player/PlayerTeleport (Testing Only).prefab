@@ -238,6 +238,11 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1178791450436251564, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: m_CameraYOffset
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
       propertyPath: m_Name
