@@ -922,16 +922,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 333803513956546902, guid: 8f9f29f2d4e959843be91737f65b164a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7243839749159263450, guid: 8f9f29f2d4e959843be91737f65b164a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f9f29f2d4e959843be91737f65b164a, type: 3}
 --- !u!1 &589177359
@@ -1339,14 +1329,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1349661306}
     m_Modifications:
     - target: {fileID: 1190590477422871, guid: 0ee66dd6f0c0fe24e9f117828be927c4, type: 3}
-      propertyPath: m_SelectActionTrigger
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190590477422871, guid: 0ee66dd6f0c0fe24e9f117828be927c4, type: 3}
-      propertyPath: m_HideControllerOnSelect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190590477422871, guid: 0ee66dd6f0c0fe24e9f117828be927c4, type: 3}
       propertyPath: m_StartingSelectedInteractable
       value: 
       objectReference: {fileID: 2877833624565782577}
@@ -1357,8 +1339,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4506412543451645287, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7103893208239467769, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
         type: 3}
@@ -1414,21 +1396,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223154661784834350, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_SelectAction.m_Action.m_Id
-      value: 18a92f4c-6cfd-4708-bcda-7d8411297ab4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223154661784834350, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_SelectAction.m_UseReference
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223154661784834350, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_SelectAction.m_Action.m_Name
-      value: Select
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ee66dd6f0c0fe24e9f117828be927c4, type: 3}

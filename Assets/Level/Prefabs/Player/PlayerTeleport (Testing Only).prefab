@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 7103893208239467769}
   - component: {fileID: -3228796707010458263}
   - component: {fileID: -4405828229698825008}
+  - component: {fileID: 1501275072}
+  - component: {fileID: 6968214666885054766}
+  - component: {fileID: 8660774541962945929}
   m_Layer: 0
   m_Name: PlayerTeleport (Testing Only)
   m_TagString: Untagged
@@ -72,6 +75,46 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &1501275072
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506412543451645287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.95, z: 0}
+--- !u!114 &6968214666885054766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506412543451645287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d960d5b1b3567de439ef31153d9429cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: 74d8ac19567f4d34f97f062b387cdb97, type: 2}
+--- !u!114 &8660774541962945929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506412543451645287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3f01be91a7d3241a10067c82b62b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
 --- !u!1 &8111339147347066012
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +298,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7103893208239467769}
     m_Modifications:
+    - target: {fileID: 1670256628, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
+      propertyPath: m_SelectAction.m_Action.m_Id
+      value: 18a92f4c-6cfd-4708-bcda-7d8411297ab4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670256628, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
+      propertyPath: m_SelectAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670256628, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
+      propertyPath: m_SelectAction.m_Action.m_Name
+      value: Select
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
       propertyPath: m_Name
@@ -314,6 +369,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222087811511916493, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: m_SelectActionTrigger
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222087811511916493, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: m_HideControllerOnSelect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1e0206aaf1654b41b365461d016db87, type: 3}

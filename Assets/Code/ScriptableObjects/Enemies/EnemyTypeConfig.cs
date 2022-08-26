@@ -23,6 +23,8 @@ namespace CartoonZombieVR.ScriptableObjects
         public bool movementAutoBraking = true;
 
         [Header("Attack")]
+        public string attackTargetTag = "Player";
+        public float attackDamage = 25.0f;
         public float attackRange = 20.0f;
         public float attackAngle = 20.0f;
         public float attackSpeed = 1.0f;
