@@ -7,6 +7,7 @@ namespace CartoonZombieVR.ScriptableObjects
     {
         public string targetTag;
         public float damage = 25.0f;
+        public float minimumProjectileVelocityToInflictDamage = 0.1f;
     }
 }
 
