@@ -957,29 +957,6 @@ Transform:
   m_Father: {fileID: 1466817456}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &619319179 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8223154661940752811, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1501275069}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &619319186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619319179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: b795f05717b189a469d2c631b5abaeb5, type: 2}
 --- !u!1 &920634887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,16 +1337,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTeleport (Testing Only)
       objectReference: {fileID: 0}
-    - target: {fileID: 4506412543451645287, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968214666885054766, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: playerGetHitVignetteVolume
-      value: 
-      objectReference: {fileID: 619319186}
     - target: {fileID: 7103893208239467769, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
         type: 3}
       propertyPath: m_RootOrder
@@ -1424,11 +1391,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223154661940752809, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ee66dd6f0c0fe24e9f117828be927c4, type: 3}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8660774541962945929}
   m_Layer: 0
   m_Name: PlayerTeleport (Testing Only)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: 74d8ac19567f4d34f97f062b387cdb97, type: 2}
+  playerGetHitVignetteVolume: {fileID: 619319186}
 --- !u!114 &8660774541962945929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +311,10 @@ PrefabInstance:
       propertyPath: m_SelectAction.m_Action.m_Name
       value: Select
       objectReference: {fileID: 0}
+    - target: {fileID: 1767192435, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
       propertyPath: m_Name
@@ -388,3 +393,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8223154661289772762}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8223154661940752811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1767192433, guid: f1e0206aaf1654b41b365461d016db87,
+    type: 3}
+  m_PrefabInstance: {fileID: 8223154661289772762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &619319186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223154661940752811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: b795f05717b189a469d2c631b5abaeb5, type: 2}

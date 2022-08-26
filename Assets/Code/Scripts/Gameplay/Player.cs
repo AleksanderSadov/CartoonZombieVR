@@ -14,12 +14,15 @@ namespace CartoonZombieVR.Gameplay
 
         private Health health;
         private Vignette getHitvignette;
+        private ColorAdjustments deathColorAdjustments;
+        private Coroutine enableHealCoroutine;
         private bool canHeal = true;
 
         private void Start()
         {
             VolumeProfile profile = playerGetHitVignetteVolume.sharedProfile;
             profile.TryGet(out getHitvignette);
+            profile.TryGet(out deathColorAdjustments);
 
             health = GetComponent<Health>();
             health.SetInitialHealth(playerConfig.health);
@@ -31,6 +34,12 @@ namespace CartoonZombieVR.Gameplay
         {
             DecreaseGetHitVignette();
             ContinuousHeal();
+        }
+
+        private void OnDestroy()
+        {
+            getHitvignette.intensity.value = 0;
+            deathColorAdjustments.postExposure.value = 0;
         }
 
         private void DecreaseGetHitVignette()
@@ -56,20 +65,40 @@ namespace CartoonZombieVR.Gameplay
         private void OnTakeDamage()
         {
             getHitvignette.intensity.value = 1;
+
+            if (enableHealCoroutine != null)
+            {
+                StopCoroutine(enableHealCoroutine);
+            }
+
             canHeal = false;
-            StopCoroutine(EnableHeal(playerConfig.stopHealAfterHitDelay));
-            StartCoroutine(EnableHeal(playerConfig.stopHealAfterHitDelay));
+            enableHealCoroutine = StartCoroutine(EnableHeal(playerConfig.stopHealAfterHitDelay));
         }
 
         private void OnDeath()
         {
-            SceneHelper.ReloadCurrentScene();
+            StartCoroutine(HandleDeath());
         }
 
         private IEnumerator EnableHeal(float delay)
         {
             yield return new WaitForSeconds(delay);
             canHeal = true;
+        }
+
+        private IEnumerator HandleDeath()
+        {
+            yield return StartCoroutine(DarkenScreen(playerConfig.playerDeathExposureDarkValue, playerConfig.playerDeathDarkenScreenSpeed));
+            SceneHelper.ReloadCurrentScene();
+        }
+
+        private IEnumerator DarkenScreen(float exposureDarkLimit, float exposureSpeed)
+        {
+            while (deathColorAdjustments.postExposure.value > exposureDarkLimit)
+            {
+                deathColorAdjustments.postExposure.value -= exposureSpeed * Time.deltaTime;
+                yield return null;
+            }
         }
     }
 }
