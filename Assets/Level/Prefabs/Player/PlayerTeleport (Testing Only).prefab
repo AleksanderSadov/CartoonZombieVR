@@ -218,6 +218,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7103893208239467769}
     m_Modifications:
+    - target: {fileID: 202364692, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
+      propertyPath: m_SelectAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1670256628, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
       propertyPath: m_SelectAction.m_Action.m_Id
       value: 18a92f4c-6cfd-4708-bcda-7d8411297ab4
@@ -293,6 +297,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434299456458490401, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: m_SelectActionTrigger
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434299456458490401, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: m_HideControllerOnSelect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4026768212750968539, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
