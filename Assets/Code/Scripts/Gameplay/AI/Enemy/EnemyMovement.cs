@@ -42,6 +42,11 @@ namespace CartoonZombieVR.Gameplay
             }
         }
 
+        public void DisableNavAgent()
+        {
+            navMeshAgent.enabled = false;
+        }
+
         public void OrientTowards(Vector3 lookPosition)
         {
             Vector3 lookDirection = Vector3.ProjectOnPlane(lookPosition - transform.position, Vector3.up).normalized;

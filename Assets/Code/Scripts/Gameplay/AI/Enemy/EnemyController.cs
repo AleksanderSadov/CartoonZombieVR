@@ -53,6 +53,7 @@ namespace CartoonZombieVR.Gameplay
         public void FindTarget() => currentTarget = findTargetSensor.FindRandomTarget();
         public void FollowTarget(GameObject target) => movement.SetNavDestination(target.transform.position);
         public void ResetDestination() => movement.ResetDestination();
+        public void DisableNavAgent() => movement.DisableNavAgent();
         public void OrientTowards(Vector3 lookPosition) => movement.OrientTowards(lookPosition);
         public void StartAttack() => attack.StartAttack();
         public void StopAttack() => attack.StopAttack();
@@ -89,6 +90,11 @@ namespace CartoonZombieVR.Gameplay
             }
         }
 
+        public void DisableCollider()
+        {
+            GetComponent<CapsuleCollider>().enabled = false;
+        }
+
         private void OnTakeDamage()
         {
             animator.SetTrigger("TakeDamage");
@@ -103,6 +109,8 @@ namespace CartoonZombieVR.Gameplay
             animator.SetTrigger("Die");
             StopAttack();
             ResetDestination();
+            DisableNavAgent();
+            DisableCollider();
             Destroy(gameObject, enemy.typeConfig.generalConfig.destroyAfterDeathSeconds);
             OnDeath?.Invoke();
         }
