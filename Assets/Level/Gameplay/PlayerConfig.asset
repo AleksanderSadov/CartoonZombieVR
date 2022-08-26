@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
   health: 100
+  getHitVignetteDuration: 0.5
+  stopHealAfterHitDelay: 5
+  continuousHealSpeed: 5

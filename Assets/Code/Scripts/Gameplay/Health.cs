@@ -5,13 +5,12 @@ namespace CartoonZombieVR.Gameplay
 {
     public class Health : MonoBehaviour
     {
+        public float currentHealth { get; private set; } = 100f;
+        public float startingHealth { get; private set; } = 100f;
         public bool isDead = false;
 
         public UnityAction OnTakeDamage;
         public UnityAction OnDeath;
-
-        private float startingHealth = 100f;
-        private float currentHealth = 100f;
        
         public void SetInitialHealth(float health)
         {
@@ -37,7 +36,7 @@ namespace CartoonZombieVR.Gameplay
 
         public void Heal(float amount)
         {
-            currentHealth = Mathf.Max(currentHealth + amount, startingHealth);
+            currentHealth = Mathf.Min(currentHealth + amount, startingHealth);
         }
 
         private void Die()

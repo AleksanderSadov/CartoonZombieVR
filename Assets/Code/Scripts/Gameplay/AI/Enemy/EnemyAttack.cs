@@ -9,6 +9,8 @@ namespace CartoonZombieVR.Gameplay
         private Enemy enemy;
         private Animator animator;
         private EnemyMeleeWeapon meleeWeapon;
+        private bool canAttackDamage = false;
+        private bool isPlayerHitOnCurrentAnimation = false;
 
         private void Awake()
         {
@@ -45,7 +47,11 @@ namespace CartoonZombieVR.Gameplay
 
         private void CheckHit(Collider collider)
         {
-            if (!collider.CompareTag(enemy.typeConfig.attackTargetTag))
+            if (
+                !collider.CompareTag(enemy.typeConfig.attackTargetTag)
+                || !canAttackDamage
+                || isPlayerHitOnCurrentAnimation
+            )
             {
                 return;
             }
@@ -57,6 +63,24 @@ namespace CartoonZombieVR.Gameplay
             }
 
             health.TakeDamage(enemy.typeConfig.attackDamage);
+            isPlayerHitOnCurrentAnimation = true;
+        }
+
+        private void OnAttackBegin(AnimationEvent animationEvent)
+        {
+            canAttackDamage = false;
+            isPlayerHitOnCurrentAnimation = false;
+        }
+
+        private void OnAttackCanDamage(AnimationEvent animationEvent)
+        {
+            canAttackDamage = true;
+        }
+
+        private void OnAttackEnd(AnimationEvent animationEvent)
+        {
+            canAttackDamage = false;
+            isPlayerHitOnCurrentAnimation = false;
         }
     }
 }
