@@ -5,7 +5,7 @@ namespace CartoonZombieVR.Gameplay
 {
     public class SightSensor : MonoBehaviour
     {
-        public EnemyConfig enemyConfig;
+        public EnemyTypeConfig enemyConfig;
 
         public bool isTargetInAttackRange;
         public bool isTargetInAttackAngle;

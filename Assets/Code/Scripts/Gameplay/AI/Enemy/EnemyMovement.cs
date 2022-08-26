@@ -18,7 +18,7 @@ namespace CartoonZombieVR.Gameplay
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
             UpdateNavMeshFromConfig();
-            enemy.config.OnConfigValuesChanged += UpdateNavMeshFromConfig;
+            enemy.typeConfig.OnConfigValuesChanged += UpdateNavMeshFromConfig;
         }
 
         private void Update()
@@ -69,13 +69,13 @@ namespace CartoonZombieVR.Gameplay
 
         private void UpdateNavMeshFromConfig()
         {
-            if (enemy.config.overrideEnemyNavMeshValues)
+            if (enemy.typeConfig.overrideEnemyNavMeshValues)
             {
-                navMeshAgent.speed = enemy.config.movementSpeed;
-                navMeshAgent.angularSpeed = enemy.config.movementAngularSpeed;
-                navMeshAgent.acceleration = enemy.config.movementAcceleration;
-                navMeshAgent.stoppingDistance = enemy.config.movementStoppingDistance;
-                navMeshAgent.autoBraking = enemy.config.movementAutoBraking;
+                navMeshAgent.speed = enemy.typeConfig.movementSpeed;
+                navMeshAgent.angularSpeed = enemy.typeConfig.movementAngularSpeed;
+                navMeshAgent.acceleration = enemy.typeConfig.movementAcceleration;
+                navMeshAgent.stoppingDistance = enemy.typeConfig.movementStoppingDistance;
+                navMeshAgent.autoBraking = enemy.typeConfig.movementAutoBraking;
             }
         }
     }

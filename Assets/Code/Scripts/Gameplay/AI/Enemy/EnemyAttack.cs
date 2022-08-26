@@ -14,7 +14,7 @@ namespace CartoonZombieVR.Gameplay
             enemy = GetComponent<Enemy>();
             animator = GetComponent<Animator>();
             UpdateAttackSpeedFromConfig();
-            enemy.config.OnConfigValuesChanged += UpdateAttackSpeedFromConfig;
+            enemy.typeConfig.OnConfigValuesChanged += UpdateAttackSpeedFromConfig;
         }
 
         public void StartAttack()
@@ -29,7 +29,7 @@ namespace CartoonZombieVR.Gameplay
 
         private void UpdateAttackSpeedFromConfig()
         {
-            animator.SetFloat("AttackSpeed", enemy.config.attackSpeed);
+            animator.SetFloat("AttackSpeed", enemy.typeConfig.attackSpeed);
         }
     }
 }

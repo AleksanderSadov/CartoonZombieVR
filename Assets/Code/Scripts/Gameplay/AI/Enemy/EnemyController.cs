@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -38,7 +39,7 @@ namespace CartoonZombieVR.Gameplay
             findTargetSensor = GetComponent<FindTargetSensor>();
             sightSensor = GetComponent<SightSensor>();
 
-            health.SetInitialHealth(enemy.config.health);
+            health.SetInitialHealth(enemy.typeConfig.health);
             health.OnTakeDamage += OnTakeDamage;
             health.OnDeath += OnHealthDeath;
         }
@@ -91,6 +92,10 @@ namespace CartoonZombieVR.Gameplay
         private void OnTakeDamage()
         {
             animator.SetTrigger("TakeDamage");
+
+            SkinnedMeshRenderer renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            StartCoroutine(ChangeEnemyColor(renderer, renderer.material.color, enemy.generalConfig.flashOnGetHitDuration));
+            renderer.material.color = enemy.generalConfig.flashOnGetHitColor;
         }
 
         private void OnHealthDeath()
@@ -98,8 +103,15 @@ namespace CartoonZombieVR.Gameplay
             animator.SetTrigger("Die");
             StopAttack();
             ResetDestination();
-            Destroy(gameObject, enemy.config.destroyAfterDeathSeconds);
+            Destroy(gameObject, enemy.generalConfig.destroyAfterDeathSeconds);
             OnDeath?.Invoke();
+        }
+
+        private IEnumerator ChangeEnemyColor(SkinnedMeshRenderer renderer, Color newColor, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            renderer.material.color = newColor;
+
         }
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine.Events;
 
 namespace CartoonZombieVR.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "EnemyConfig", menuName = "ScriptableObjects/EnemyConfig", order = 2)]
-    public class EnemyConfig : ScriptableObject
+    [CreateAssetMenu(fileName = "EnemyTypeConfig", menuName = "ScriptableObjects/EnemyTypeConfig", order = 220)]
+    public class EnemyTypeConfig : ScriptableObject
     {
         [Header("Movement")]
         public bool overrideEnemyNavMeshValues = false;
@@ -27,7 +27,6 @@ namespace CartoonZombieVR.ScriptableObjects
 
         [Header("Health")]
         public float health = 100.0f;
-        public float destroyAfterDeathSeconds = 10.0f;
 
         [Header("Events")]
         public UnityAction OnConfigValuesChanged;

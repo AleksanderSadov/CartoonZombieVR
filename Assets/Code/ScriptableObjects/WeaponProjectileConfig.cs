@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CartoonZombieVR.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "WeaponProjectileConfig", menuName = "ScriptableObjects/WeaponProjectileConfig", order = 3)]
+    [CreateAssetMenu(fileName = "WeaponProjectileConfig", menuName = "ScriptableObjects/WeaponProjectileConfig", order = 310)]
     public class WeaponProjectileConfig : ScriptableObject
     {
         public string targetTag;

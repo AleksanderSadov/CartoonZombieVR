@@ -687,7 +687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a691b74681612a47a09a46ee99ac0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: f06f3911d6d00f844914db54272a830a, type: 2}
+  generalConfig: {fileID: 11400000, guid: 9d65fed6f5b990c43a1c562e32b169ff, type: 2}
+  typeConfig: {fileID: 11400000, guid: f06f3911d6d00f844914db54272a830a, type: 2}
 --- !u!114 &926774726653150245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3f01be91a7d3241a10067c82b62b33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
 --- !u!114 &8579802518892169743
 MonoBehaviour:
   m_ObjectHideFlags: 0

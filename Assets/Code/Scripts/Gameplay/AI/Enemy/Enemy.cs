@@ -5,6 +5,7 @@ namespace CartoonZombieVR.Gameplay
 {
     public class Enemy : MonoBehaviour
     {
-        public EnemyConfig config;
+        public EnemyGeneralConfig generalConfig;
+        public EnemyTypeConfig typeConfig;
     }
 }
