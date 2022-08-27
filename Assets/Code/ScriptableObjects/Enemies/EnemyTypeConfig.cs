@@ -4,10 +4,19 @@ using UnityEngine.Events;
 
 namespace CartoonZombieVR.ScriptableObjects
 {
+    public enum EnemyDifficulty
+    {
+        Basic,
+        Boss
+    }
+
     [CreateAssetMenu(fileName = "EnemyTypeConfig", menuName = "ScriptableObjects/EnemyTypeConfig", order = 220)]
     public class EnemyTypeConfig : ScriptableObject
     {
         public EnemyGeneralConfig generalConfig;
+
+        [Header("Difficulty")]
+        public EnemyDifficulty enemyDifficulty = EnemyDifficulty.Basic;
 
         [Header("Movement")]
         public bool overrideEnemyNavMeshValues = false;

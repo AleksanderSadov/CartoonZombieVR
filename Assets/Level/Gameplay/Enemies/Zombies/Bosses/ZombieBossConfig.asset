@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ZombieBossConfig
   m_EditorClassIdentifier: 
   generalConfig: {fileID: 11400000, guid: 9d65fed6f5b990c43a1c562e32b169ff, type: 2}
+  enemyDifficulty: 1
   overrideEnemyNavMeshValues: 1
   movementSpeed: 1.5
   movementAngularSpeed: 120

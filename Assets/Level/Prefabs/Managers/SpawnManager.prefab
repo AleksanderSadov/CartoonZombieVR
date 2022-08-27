@@ -45,6 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 100036, guid: 8f9f29f2d4e959843be91737f65b164a, type: 3}
+  basicEnemyTypes:
+  - {fileID: 11400000, guid: f06f3911d6d00f844914db54272a830a, type: 2}
+  - {fileID: 11400000, guid: 63a6885d1ce64d3478b953bff1c474b8, type: 2}
+  - {fileID: 11400000, guid: f8db0f764100b0b49bb7296e9fda7e90, type: 2}
+  - {fileID: 11400000, guid: 1893ddbf2fd43ab48862dcb6c99bd3ed, type: 2}
+  bossEnemyTypes:
+  - {fileID: 11400000, guid: f2dc50a3abb0cb64a8b507756dc54a14, type: 2}
   enemiesParentContainer: {fileID: 0}
   maxBasicAliveEnemies: 0
   maxBossAliveEnemies: 0

@@ -43,6 +43,7 @@ namespace CartoonZombieVR.Gameplay
             if (currentActiveWaveHandler != null)
             {
                 spawnManager.maxBasicAliveEnemies = currentActiveWaveHandler.basicEnemiesMaxCount;
+                spawnManager.maxBossAliveEnemies = currentActiveWaveHandler.bossEnemiesMaxCount;
             }
         }
     }

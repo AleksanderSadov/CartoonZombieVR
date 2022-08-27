@@ -1,3 +1,5 @@
+using CartoonZombieVR.ScriptableObjects;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CartoonZombieVR.Gameplay
@@ -5,6 +7,8 @@ namespace CartoonZombieVR.Gameplay
     public class SpawnManager : MonoBehaviour
     {
         public GameObject enemyPrefab;
+        public List<EnemyTypeConfig> basicEnemyTypes;
+        public List<EnemyTypeConfig> bossEnemyTypes;
         public Transform enemiesParentContainer;
         public int maxBasicAliveEnemies = 1;
         public int maxBossAliveEnemies = 0;
@@ -25,30 +29,80 @@ namespace CartoonZombieVR.Gameplay
 
         private void SpawnEnemies()
         {
-            int currentAliveEnemiesCount = teamManager.GetTeam(TeamAffiliation.Enemies).members.Count;
-            while (currentAliveEnemiesCount < maxBasicAliveEnemies)
+            List<TeamMember> allEnemies = teamManager.GetTeam(TeamAffiliation.Enemies).members;
+            int basicEnemiesAliveCount = 0;
+            int bossEnemiesAliveCount = 0;
+            foreach (TeamMember enemy in allEnemies)
             {
-                SpawnNewEnemy();
-                currentAliveEnemiesCount++;
+                EnemyDifficulty enemyDifficulty = enemy.GetComponent<Enemy>().typeConfig.enemyDifficulty;
+                if (enemyDifficulty == EnemyDifficulty.Basic)
+                {
+                    basicEnemiesAliveCount++;
+                }
+                else if (enemyDifficulty == EnemyDifficulty.Boss)
+                {
+                    bossEnemiesAliveCount++;
+                }
+            }
+
+            while (basicEnemiesAliveCount < maxBasicAliveEnemies)
+            {
+                SpawnNewEnemy(EnemyDifficulty.Basic);
+                basicEnemiesAliveCount++;
+            }
+
+            while (bossEnemiesAliveCount < maxBossAliveEnemies)
+            {
+                Debug.Log("SpawnBoss");
+                SpawnNewEnemy(EnemyDifficulty.Boss);
+                bossEnemiesAliveCount++;
             }
         }
 
-        private void SpawnNewEnemy()
+        private void SpawnNewEnemy(EnemyDifficulty enemyDifficulty)
         {
             EnemySpawnPoint enemySpawnPoint = GetRandomSpawnPoint();
 
-            Instantiate(
+            Enemy enemy = Instantiate(
                 enemyPrefab,
                 enemySpawnPoint.transform.position,
                 enemySpawnPoint.transform.rotation,
                 enemiesParentContainer
-            );
+            ).GetComponent<Enemy>();
+
+            enemy.typeConfig = GetRandomEnemyTypeConfig(enemyDifficulty);
         }
 
         private EnemySpawnPoint GetRandomSpawnPoint()
         {
             int randomIndex = Random.Range(0, enemiesSpawnPoints.Length);
             return enemiesSpawnPoints[randomIndex];
+        }
+
+        private EnemyTypeConfig GetRandomEnemyTypeConfig(EnemyDifficulty enemyDifficulty)
+        {
+            if (enemyDifficulty == EnemyDifficulty.Basic)
+            {
+                if (basicEnemyTypes.Count == 0)
+                {
+                    return null;
+                }
+
+                int randomIndex = Random.Range(0, basicEnemyTypes.Count);
+                return basicEnemyTypes[randomIndex];
+            }
+            else if (enemyDifficulty == EnemyDifficulty.Boss)
+            {
+                if (bossEnemyTypes.Count == 0)
+                {
+                    return null;
+                }
+
+                int randomIndex = Random.Range(0, bossEnemyTypes.Count);
+                return bossEnemyTypes[randomIndex];
+            }
+
+            return null;
         }
     }
 }

@@ -22,4 +22,4 @@ MonoBehaviour:
     bossEnemiesMaxCount: 0
   - timeExpired: 10
     basicEnemiesMaxCount: 3
-    bossEnemiesMaxCount: 0
+    bossEnemiesMaxCount: 2
