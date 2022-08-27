@@ -9,23 +9,50 @@ namespace CartoonZombieVR.Gameplay
         public GameConfig gameConfig;
         public Timer gameTimer;
         public SpawnManager spawnManager;
+        public GameObject TutorialRing;
+        public GameObject TutorialUI;
+        public GameObject TimerUI;
 
         private void Start()
         {
             if (gameTimer != null || gameConfig != null)
             {
                 gameTimer.SetTimerDuration(gameConfig.gameTimerDurationInSeconds);
-                gameTimer.StartTimer();
+
+                if (gameConfig.skipTutorial)
+                {
+                    StartGame();
+                }
             }
         }
 
         private void Update()
         {
-            HandleEnemiesWaves();
+            if (!gameTimer.isTimerFinished)
+            {
+                HandleEnemiesWaves();
+            }
+            else
+            {
+                spawnManager.enabled = false;
+            }
+        }
+
+        public void StartGame()
+        {
+            TutorialRing.SetActive(false);
+            TutorialUI.SetActive(false);
+            TimerUI.SetActive(true);
+            gameTimer.StartTimer();
         }
 
         private void HandleEnemiesWaves()
         {
+            if (!gameTimer.isTimerRunning)
+            {
+                return;
+            }
+
             float timeExpired = gameTimer.timeExpired;
             EnemiesWaveHandler currentActiveWaveHandler = null;
             foreach (EnemiesWaveHandler waveHandler in gameConfig.enemiesWavesHandler)

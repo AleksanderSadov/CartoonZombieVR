@@ -11,6 +11,9 @@ namespace CartoonZombieVR.General
         public float timerDuration = 10;
         [HideIf("setDurationInScript")]
         public bool startTimerOnAwake = false;
+        public bool isTimerStarted { get; private set; } = false;
+        public bool isTimerRunning { get; private set; } = false;
+        public bool isTimerFinished { get; private set; } = false;
         public float timeRemaining { get; private set; }
         public float timeExpired
         {
@@ -23,7 +26,6 @@ namespace CartoonZombieVR.General
         public UnityEvent timerStarted;
         public UnityEvent timerFinished;
 
-        private bool isTimerRunning = false;
         private bool isTimerStartedFired = false;
 
         private void Awake()
@@ -57,13 +59,16 @@ namespace CartoonZombieVR.General
             {
                 timeRemaining = 0;
                 isTimerRunning = false;
+                isTimerFinished = true;
                 timerFinished?.Invoke();
             }
         }
 
         public void StartTimer()
         {
+            isTimerStarted = true;
             isTimerRunning = true;
+            isTimerFinished = false;
         }
 
         public void PauseTimer()
@@ -73,7 +78,9 @@ namespace CartoonZombieVR.General
 
         public void StopTimer()
         {
+            isTimerStarted = false;
             isTimerRunning = false;
+            isTimerFinished = false;
             timeRemaining = timerDuration;
         }
 

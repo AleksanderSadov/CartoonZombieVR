@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: c6a3e3aee54b16446abbda7f75f7a2b0, type: 2}
   gameTimer: {fileID: 0}
+  spawnManager: {fileID: 0}
+  TutorialRing: {fileID: 0}
+  TutorialUI: {fileID: 0}
+  TimerUI: {fileID: 0}

@@ -53,7 +53,6 @@ namespace CartoonZombieVR.Gameplay
 
             while (bossEnemiesAliveCount < maxBossAliveEnemies)
             {
-                Debug.Log("SpawnBoss");
                 SpawnNewEnemy(EnemyDifficulty.Boss);
                 bossEnemiesAliveCount++;
             }

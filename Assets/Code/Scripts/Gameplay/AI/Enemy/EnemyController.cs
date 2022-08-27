@@ -39,15 +39,18 @@ namespace CartoonZombieVR.Gameplay
             findTargetSensor = GetComponent<FindTargetSensor>();
             sightSensor = GetComponent<SightSensor>();
 
-            health.SetInitialHealth(enemy.typeConfig.health);
             health.OnTakeDamage += OnTakeDamage;
             health.OnDeath += OnHealthDeath;
+
+            enemy.OnConfigValuesChanged += UpdateHealthFromConfig;
+            UpdateHealthFromConfig();
         }
 
         private void OnDestroy()
         {
             health.OnTakeDamage -= OnTakeDamage;
             health.OnDeath -= OnHealthDeath;
+            enemy.OnConfigValuesChanged -= UpdateHealthFromConfig;
         }
 
         public void FindTarget() => currentTarget = findTargetSensor.FindRandomTarget();
@@ -119,6 +122,11 @@ namespace CartoonZombieVR.Gameplay
         {
             yield return new WaitForSeconds(delay);
             renderer.material.color = newColor;
+        }
+
+        private void UpdateHealthFromConfig()
+        {
+            health.SetInitialHealth(enemy.typeConfig.health);
         }
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ZombieChildConfig
   m_EditorClassIdentifier: 
   generalConfig: {fileID: 11400000, guid: 9d65fed6f5b990c43a1c562e32b169ff, type: 2}
+  enemyDifficulty: 0
   overrideEnemyNavMeshValues: 1
   movementSpeed: 4
   movementAngularSpeed: 120
@@ -24,7 +25,7 @@ MonoBehaviour:
   attackRange: 4
   attackAngle: 20
   attackSpeed: 0.9
-  health: 100
+  health: 50
   scale: {x: 0.9, y: 0.9, z: 0.9}
   blendShapeStrong: 0
   blendShapeFat: 0

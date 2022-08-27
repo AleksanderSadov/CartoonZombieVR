@@ -7,6 +7,7 @@ namespace CartoonZombieVR.ScriptableObjects
     [CreateAssetMenu(fileName = "GameConfig", menuName = "ScriptableObjects/GameConfig", order = 110)]
     public class GameConfig : ScriptableObject
     {
+        public bool skipTutorial = false;
         public float gameTimerDurationInSeconds = 300;
         public List<EnemiesWaveHandler> enemiesWavesHandler = new List<EnemiesWaveHandler>();
 

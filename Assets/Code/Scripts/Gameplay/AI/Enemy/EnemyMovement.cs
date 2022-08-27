@@ -17,8 +17,8 @@ namespace CartoonZombieVR.Gameplay
             enemy = GetComponent<Enemy>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
-            UpdateNavMeshFromConfig();
             enemy.OnConfigValuesChanged += UpdateNavMeshFromConfig;
+            UpdateNavMeshFromConfig();
         }
 
         private void Update()
