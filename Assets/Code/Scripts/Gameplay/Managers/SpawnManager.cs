@@ -6,7 +6,8 @@ namespace CartoonZombieVR.Gameplay
     {
         public GameObject enemyPrefab;
         public Transform enemiesParentContainer;
-        public int maxAliveEnemies = 1;
+        public int maxBasicAliveEnemies = 1;
+        public int maxBossAliveEnemies = 0;
 
         private EnemySpawnPoint[] enemiesSpawnPoints;
         private TeamManager teamManager;
@@ -25,7 +26,7 @@ namespace CartoonZombieVR.Gameplay
         private void SpawnEnemies()
         {
             int currentAliveEnemiesCount = teamManager.GetTeam(TeamAffiliation.Enemies).members.Count;
-            while (currentAliveEnemiesCount < maxAliveEnemies)
+            while (currentAliveEnemiesCount < maxBasicAliveEnemies)
             {
                 SpawnNewEnemy();
                 currentAliveEnemiesCount++;

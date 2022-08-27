@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d96ddb296e58ca419b56fca82671b5c, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  gameTimerInSeconds: 300
+  gameTimerDurationInSeconds: 300
+  enemiesWavesHandler:
+  - timeExpired: 0
+    basicEnemiesMaxCount: 1
+    bossEnemiesMaxCount: 0
+  - timeExpired: 5
+    basicEnemiesMaxCount: 2
+    bossEnemiesMaxCount: 0
+  - timeExpired: 10
+    basicEnemiesMaxCount: 3
+    bossEnemiesMaxCount: 0

@@ -11,7 +11,7 @@ namespace CartoonZombieVR.UI
 
         private void LateUpdate()
         {
-            float remainingTime = timer.GetRemainigTime();
+            float remainingTime = timer.timeRemaining;
             DisplayTime(remainingTime);
         }
 

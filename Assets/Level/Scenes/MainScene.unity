@@ -4918,7 +4918,7 @@ PrefabInstance:
     - target: {fileID: 6125320338367947427, guid: 503eec221593a9e4cb858b23af565c73,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 503eec221593a9e4cb858b23af565c73, type: 3}
@@ -4991,11 +4991,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7044806757753171649, guid: 3e00c5e8f47be544b86ec952084ce2ba,
         type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7044806757753171649, guid: 3e00c5e8f47be544b86ec952084ce2ba,
-        type: 3}
       propertyPath: enemiesParentContainer
       value: 
       objectReference: {fileID: 1700741579}
@@ -5007,6 +5002,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6668731421429937200}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6668731421429937202 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7044806757753171649, guid: 3e00c5e8f47be544b86ec952084ce2ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 6668731421429937200}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a736acead0f427a4899b0a28eec89321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6837808079399450398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5162,6 +5169,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 920634888}
     m_Modifications:
+    - target: {fileID: 8470794411406464413, guid: bb31d7128e355c84ca2a84127615491a,
+        type: 3}
+      propertyPath: timeRemainingEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470794411406464413, guid: bb31d7128e355c84ca2a84127615491a,
+        type: 3}
+      propertyPath: timeRemainingEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470794411406464413, guid: bb31d7128e355c84ca2a84127615491a,
+        type: 3}
+      propertyPath: timeRemainingEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8470794411406464414, guid: bb31d7128e355c84ca2a84127615491a,
         type: 3}
       propertyPath: m_RootOrder
@@ -5296,6 +5318,16 @@ PrefabInstance:
       propertyPath: gameTimer
       value: 
       objectReference: {fileID: 1761676222}
+    - target: {fileID: 8662189726890431919, guid: 2467c3e9b77091e40b960f577b8a42fe,
+        type: 3}
+      propertyPath: spawnManager
+      value: 
+      objectReference: {fileID: 6668731421429937202}
+    - target: {fileID: 8662189726890431919, guid: 2467c3e9b77091e40b960f577b8a42fe,
+        type: 3}
+      propertyPath: enemiesWavesHandler.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2467c3e9b77091e40b960f577b8a42fe, type: 3}
 --- !u!1001 &8729161169585363014
