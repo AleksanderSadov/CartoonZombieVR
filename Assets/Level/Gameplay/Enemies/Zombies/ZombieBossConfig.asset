@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d7f8c8fee87b547a3df5f83bccc182, type: 3}
+  m_Name: ZombieBossConfig
+  m_EditorClassIdentifier: 
+  generalConfig: {fileID: 11400000, guid: 9d65fed6f5b990c43a1c562e32b169ff, type: 2}
+  overrideEnemyNavMeshValues: 1
+  movementSpeed: 1.5
+  movementAngularSpeed: 120
+  movementAcceleration: 1
+  movementStoppingDistance: 4
+  movementAutoBraking: 1
+  attackTargetTag: Player
+  attackDamage: 35
+  attackRange: 4
+  attackAngle: 20
+  attackSpeed: 0.3
+  health: 300
+  scale: {x: 2, y: 2, z: 2}
+  blendShapeStrong: 44.4
+  blendShapeFat: 44.4
+  blendShapeLeftEyeSmall: 0
+  blendShapeRightEyeSmall: 0
+  blendShapeLeftEyeEmpty: 20.7
+  blendShapeRightEyeEmpty: 0
+  blendShapeChamfedHead: 23.1
+  blendShapeChamfedJaw: 44.9
+  blendShapeLeftSidedHead: 66.8
+  blendShapeRightSidedHead: 68.6
+  blendShapeLemonHead: 0
+  blendShapeNormalHead: 0
