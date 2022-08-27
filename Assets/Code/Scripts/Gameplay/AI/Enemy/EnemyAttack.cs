@@ -20,13 +20,13 @@ namespace CartoonZombieVR.Gameplay
             meleeWeapon = GetComponentInChildren<EnemyMeleeWeapon>();
             meleeWeapon.weaponHit.AddListener(CheckHit);
 
-            enemy.typeConfig.OnConfigValuesChanged += UpdateAttackSpeedFromConfig;
+            enemy.OnConfigValuesChanged += UpdateAttackSpeedFromConfig;
             UpdateAttackSpeedFromConfig();
         }
 
         private void OnDestroy()
         {
-            enemy.typeConfig.OnConfigValuesChanged -= UpdateAttackSpeedFromConfig;
+            enemy.OnConfigValuesChanged -= UpdateAttackSpeedFromConfig;
             meleeWeapon.weaponHit.RemoveListener(CheckHit);
         }
 

@@ -32,6 +32,35 @@ namespace CartoonZombieVR.ScriptableObjects
         [Header("Health")]
         public float health = 100.0f;
 
+        [Header("Size")]
+        public Vector3 scale = new Vector3(1, 1, 1);
+
+        [Header("BlendShapes")]
+        [Range(0, 100)]
+        public float blendShapeStrong = 0;
+        [Range(0, 100)]
+        public float blendShapeFat = 0;
+        [Range(0, 100)]
+        public float blendShapeLeftEyeSmall = 0;
+        [Range(0, 100)]
+        public float blendShapeRightEyeSmall = 0;
+        [Range(0, 100)]
+        public float blendShapeLeftEyeEmpty = 0;
+        [Range(0, 100)]
+        public float blendShapeRightEyeEmpty = 0;
+        [Range(0, 100)]
+        public float blendShapeChamfedHead = 0;
+        [Range(0, 100)]
+        public float blendShapeChamfedJaw = 0;
+        [Range(0, 100)]
+        public float blendShapeLeftSidedHead = 0;
+        [Range(0, 100)]
+        public float blendShapeRightSidedHead = 0;
+        [Range(0, 100)]
+        public float blendShapeLemonHead = 0;
+        [Range(0, 100)]
+        public float blendShapeNormalHead = 0;
+
         [Header("Events")]
         public UnityAction OnConfigValuesChanged;
 

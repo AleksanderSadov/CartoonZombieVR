@@ -638,6 +638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400036}
   - component: {fileID: 6760813925604840475}
+  - component: {fileID: 7243839749159263450}
   - component: {fileID: 926774726653150245}
   - component: {fileID: 8579802518892169743}
   - component: {fileID: 1036165444744125500}
@@ -645,7 +646,6 @@ GameObject:
   - component: {fileID: 7569496821176090589}
   - component: {fileID: 8099953196970778259}
   - component: {fileID: 7041057837562028016}
-  - component: {fileID: 7243839749159263450}
   - component: {fileID: 251092828}
   - component: {fileID: 333803513956546902}
   - component: {fileID: 2626821393319625877}
@@ -688,6 +688,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeConfig: {fileID: 11400000, guid: f06f3911d6d00f844914db54272a830a, type: 2}
+  skinnedMeshRenderer: {fileID: 13700000}
+--- !u!114 &7243839749159263450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2fcd5896d0011428487c56b261acd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiState: 0
 --- !u!114 &926774726653150245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,19 +792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
---- !u!114 &7243839749159263450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2fcd5896d0011428487c56b261acd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiState: 0
 --- !u!95 &251092828
 Animator:
   serializedVersion: 4

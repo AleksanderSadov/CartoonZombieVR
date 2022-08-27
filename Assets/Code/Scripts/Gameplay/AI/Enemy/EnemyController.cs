@@ -119,7 +119,6 @@ namespace CartoonZombieVR.Gameplay
         {
             yield return new WaitForSeconds(delay);
             renderer.material.color = newColor;
-
         }
     }
 }
