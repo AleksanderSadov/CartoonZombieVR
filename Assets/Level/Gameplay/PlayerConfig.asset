@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419e59c5375a5c45ad7ad20aa938b36, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  health: 10000
+  health: 100
   stopHealAfterHitDelay: 10
   continuousHealSpeed: 5
   getHitVignetteDuration: 0.5
