@@ -4,8 +4,8 @@ namespace CartoonZombieVR.Gameplay
 {
     public enum TeamAffiliation
     {
-        PLAYERS,
-        ENEMIES,
+        Players,
+        Enemies,
     }
 
     [System.Serializable]

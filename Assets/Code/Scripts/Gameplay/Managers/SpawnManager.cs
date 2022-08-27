@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace CartoonZombieVR.Gameplay
@@ -6,20 +5,49 @@ namespace CartoonZombieVR.Gameplay
     public class SpawnManager : MonoBehaviour
     {
         public GameObject enemyPrefab;
-        public Transform spawnPoint;
+        public Transform enemiesParentContainer;
+        public int maxAliveEnemies = 1;
+
+        private EnemySpawnPoint[] enemiesSpawnPoints;
+        private TeamManager teamManager;
 
         private void Start()
         {
-            StartCoroutine(SpawnNewEnemy());
+            teamManager = FindObjectOfType<TeamManager>();
+            enemiesSpawnPoints = FindObjectsOfType<EnemySpawnPoint>();
         }
 
-        private IEnumerator SpawnNewEnemy()
+        private void Update()
         {
-            while (true)
+            SpawnEnemies();
+        }
+
+        private void SpawnEnemies()
+        {
+            int currentAliveEnemiesCount = teamManager.GetTeam(TeamAffiliation.Enemies).members.Count;
+            while (currentAliveEnemiesCount < maxAliveEnemies)
             {
-                yield return new WaitForSeconds(5);
-                Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation, null);
+                SpawnNewEnemy();
+                currentAliveEnemiesCount++;
             }
+        }
+
+        private void SpawnNewEnemy()
+        {
+            EnemySpawnPoint enemySpawnPoint = GetRandomSpawnPoint();
+
+            Instantiate(
+                enemyPrefab,
+                enemySpawnPoint.transform.position,
+                enemySpawnPoint.transform.rotation,
+                enemiesParentContainer
+            );
+        }
+
+        private EnemySpawnPoint GetRandomSpawnPoint()
+        {
+            int randomIndex = Random.Range(0, enemiesSpawnPoints.Length);
+            return enemiesSpawnPoints[randomIndex];
         }
     }
 }
