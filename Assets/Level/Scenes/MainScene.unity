@@ -3461,21 +3461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTeleport (Testing Only)
       objectReference: {fileID: 0}
-    - target: {fileID: 6026481184489719375, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_InteractionLayers.m_Bits
-      value: 53
-      objectReference: {fileID: 0}
     - target: {fileID: 6041259964107113723, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
         type: 3}
       propertyPath: m_StartingSelectedInteractable
       value: 
       objectReference: {fileID: 742112985}
-    - target: {fileID: 6457001237935800391, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_InteractionLayers.m_Bits
-      value: 2147483649
-      objectReference: {fileID: 0}
     - target: {fileID: 7103893208239467769, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
         type: 3}
       propertyPath: m_RootOrder
@@ -3530,16 +3520,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208773139821739741, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_InteractionLayers.m_Bits
-      value: 53
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223154662408191442, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
-        type: 3}
-      propertyPath: m_InteractionLayers.m_Bits
-      value: 2147483649
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ee66dd6f0c0fe24e9f117828be927c4, type: 3}
