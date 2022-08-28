@@ -15,4 +15,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 9031775881104408046, guid: 4251ab78ddc2ffa4ea633732417a2c54,
     type: 3}
   launchSpeed: 1000
-  reloadDuration: 0.5
+  reloadDuration: 0.25
