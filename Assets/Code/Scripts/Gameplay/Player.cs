@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace CartoonZombieVR.Gameplay
 {
@@ -12,34 +13,93 @@ namespace CartoonZombieVR.Gameplay
         public PlayerConfig playerConfig;
         public Volume playerGetHitVignetteVolume;
 
+        [Header("LeftHand")]
+        public XRRayInteractor leftHandRayInteractor;
+        public XRRayInteractor leftHandTeleportInteractor;
+        [Header("RightHand")]
+        public XRRayInteractor rightHandRayInteractor;
+        public XRRayInteractor rightHandTeleportInteractor;
+
+        private bool isConfigDirty = false;
+        private ActionBasedSnapTurnProvider snapTurnProvider;
         private Health health;
         private Vignette getHitvignette;
         private ColorAdjustments deathColorAdjustments;
         private Coroutine enableHealCoroutine;
         private bool canHeal = true;
 
-        private void Start()
+        private void Awake()
         {
+            health = GetComponent<Health>();
+            snapTurnProvider = GetComponent<ActionBasedSnapTurnProvider>();
             VolumeProfile profile = playerGetHitVignetteVolume.sharedProfile;
             profile.TryGet(out getHitvignette);
             profile.TryGet(out deathColorAdjustments);
+        }
 
-            health = GetComponent<Health>();
-            health.SetInitialHealth(playerConfig.health);
+        private void OnEnable()
+        {
+            playerConfig.OnConfigValuesChanged += MarkConfigDirty;
+            UpdatePlayerFromConfig();
             health.OnTakeDamage += OnTakeDamage;
             health.OnDeath += OnDeath;
         }
 
         private void Update()
         {
+            if (isConfigDirty)
+            {
+                isConfigDirty = false;
+                UpdatePlayerFromConfig();
+            }
+
             DecreaseGetHitVignette();
             ContinuousHeal();
+        }
+
+        private void OnDisable()
+        {
+            playerConfig.OnConfigValuesChanged -= MarkConfigDirty;
+            health.OnTakeDamage -= OnTakeDamage;
+            health.OnDeath -= OnDeath;
         }
 
         private void OnDestroy()
         {
             getHitvignette.intensity.value = 0;
             deathColorAdjustments.postExposure.value = 0;
+        }
+
+        private void MarkConfigDirty()
+        {
+            isConfigDirty = true;
+        }
+
+        private void UpdatePlayerFromConfig()
+        {
+            TogglePlayerXRInteractionType();
+            health.SetInitialHealth(playerConfig.health);
+            health.isInvincible = playerConfig.isInvincible;
+        }
+
+        private void TogglePlayerXRInteractionType()
+        {
+            if (playerConfig.playerXRInteractionType == PlayerXRInteractionType.FreeRoam)
+            {
+                leftHandRayInteractor.enabled = false;
+                leftHandTeleportInteractor.enabled = false;
+                rightHandRayInteractor.enabled = false;
+                rightHandTeleportInteractor.enabled = false;
+                snapTurnProvider.enabled = false;
+            }
+            else if (playerConfig.playerXRInteractionType == PlayerXRInteractionType.Teleport)
+            {
+                leftHandRayInteractor.enabled = true;
+                leftHandTeleportInteractor.enabled = true;
+                rightHandRayInteractor.enabled = true;
+                rightHandTeleportInteractor.enabled = true;
+                snapTurnProvider.enabled = true;
+            }
         }
 
         private void DecreaseGetHitVignette()

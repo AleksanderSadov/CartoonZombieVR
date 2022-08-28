@@ -11,7 +11,7 @@ namespace CartoonZombieVR.ScriptableObjects
     }
 
     [CreateAssetMenu(fileName = "EnemyTypeConfig", menuName = "ScriptableObjects/EnemyTypeConfig", order = 220)]
-    public class EnemyTypeConfig : ScriptableObject
+    public class EnemyTypeConfig : OnChangeConfig
     {
         public EnemyGeneralConfig generalConfig;
 
@@ -69,14 +69,6 @@ namespace CartoonZombieVR.ScriptableObjects
         public float blendShapeLemonHead = 0;
         [Range(0, 100)]
         public float blendShapeNormalHead = 0;
-
-        [Header("Events")]
-        public UnityAction OnConfigValuesChanged;
-
-        public void OnValidate()
-        {
-            OnConfigValuesChanged?.Invoke();
-        }
     }
 }
 

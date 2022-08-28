@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e419e59c5375a5c45ad7ad20aa938b36, type: 3}
-  m_Name: PlayerConfig
+  m_Name: PlayerMainConfig
   m_EditorClassIdentifier: 
+  playerXRInteractionType: 0
   health: 100
+  isInvincible: 0
   stopHealAfterHitDelay: 10
   continuousHealSpeed: 5
   getHitVignetteDuration: 0.5

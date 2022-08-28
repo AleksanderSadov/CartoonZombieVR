@@ -5,9 +5,10 @@ namespace CartoonZombieVR.Gameplay
 {
     public class Health : MonoBehaviour
     {
-        public float currentHealth { get; private set; } = 100f;
-        public float startingHealth { get; private set; } = 100f;
+        public float currentHealth = 100f;
+        public float startingHealth = 100f;
         public bool isDead = false;
+        public bool isInvincible = false;
 
         public UnityAction OnTakeDamage;
         public UnityAction OnDeath;
@@ -20,7 +21,7 @@ namespace CartoonZombieVR.Gameplay
 
         public void TakeDamage(float amount)
         {
-            if (isDead)
+            if (isInvincible || isDead)
             {
                 return;
             }

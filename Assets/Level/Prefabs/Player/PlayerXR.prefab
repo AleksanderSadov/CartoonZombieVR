@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7103893208239467769}
   m_Layer: 0
-  m_Name: PlayerTeleport (Testing Only)
+  m_Name: PlayerXR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_SelectAction.m_UseReference
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1319746308, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
+      propertyPath: m_Name
+      value: Teleport Interactor
+      objectReference: {fileID: 0}
     - target: {fileID: 1319746312, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 2147483649
@@ -255,7 +259,7 @@ PrefabInstance:
     - target: {fileID: 1717954561962503725, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
       propertyPath: m_Name
-      value: XROriginTeleport (Testing Only)
+      value: XROrigin
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
@@ -332,6 +336,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3136022610495506065, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: m_Name
+      value: Teleport Interactor
+      objectReference: {fileID: 0}
     - target: {fileID: 3136022610495506077, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -339,9 +348,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4026768212750968539, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
+      propertyPath: leftHandRayInteractor
+      value: 
+      objectReference: {fileID: 8208773139821739741}
+    - target: {fileID: 4026768212750968539, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: rightHandRayInteractor
+      value: 
+      objectReference: {fileID: 6026481184489719375}
+    - target: {fileID: 4026768212750968539, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: leftHandTeleportInteractor
+      value: 
+      objectReference: {fileID: 6457001237935800391}
+    - target: {fileID: 4026768212750968539, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
       propertyPath: playerGetHitVignetteVolume
       value: 
       objectReference: {fileID: 619319186}
+    - target: {fileID: 4026768212750968539, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: rightHandTeleportInteractor
+      value: 
+      objectReference: {fileID: 8223154662408191442}
+    - target: {fileID: 6836544333121145291, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: m_Name
+      value: Ray Interactor
+      objectReference: {fileID: 0}
     - target: {fileID: 8222087811511916493, guid: f1e0206aaf1654b41b365461d016db87,
         type: 3}
       propertyPath: m_SelectActionTrigger
@@ -352,14 +386,55 @@ PrefabInstance:
       propertyPath: m_HideControllerOnSelect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8982851401174954329, guid: f1e0206aaf1654b41b365461d016db87,
+        type: 3}
+      propertyPath: m_Name
+      value: Ray Interactor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1e0206aaf1654b41b365461d016db87, type: 3}
+--- !u!114 &6026481184489719375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2431063285392703637, guid: f1e0206aaf1654b41b365461d016db87,
+    type: 3}
+  m_PrefabInstance: {fileID: 8223154661289772762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6457001237935800391 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3136022610495506077, guid: f1e0206aaf1654b41b365461d016db87,
+    type: 3}
+  m_PrefabInstance: {fileID: 8223154661289772762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7334645302639405300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: f1e0206aaf1654b41b365461d016db87,
     type: 3}
   m_PrefabInstance: {fileID: 8223154661289772762}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8208773139821739741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 285389467476424711, guid: f1e0206aaf1654b41b365461d016db87,
+    type: 3}
+  m_PrefabInstance: {fileID: 8223154661289772762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8223154661940752811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f1e0206aaf1654b41b365461d016db87,
@@ -383,3 +458,15 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: b795f05717b189a469d2c631b5abaeb5, type: 2}
+--- !u!114 &8223154662408191442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1319746312, guid: f1e0206aaf1654b41b365461d016db87,
+    type: 3}
+  m_PrefabInstance: {fileID: 8223154661289772762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

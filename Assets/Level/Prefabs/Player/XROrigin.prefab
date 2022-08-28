@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 4026768212750968539}
   - component: {fileID: 2455911545197522750}
   m_Layer: 2
-  m_Name: XROriginTeleport (Testing Only)
+  m_Name: XROrigin
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
