@@ -9,7 +9,7 @@ namespace CartoonZombieVR.Gameplay
     [RequireComponent(typeof(Animator))]
     public class EnemyMovement : MonoBehaviour
     {
-        public AudioSource walkingScreamAudioSource;
+        public bool isMoving => navMeshAgent.velocity.magnitude > 0;
 
         private Enemy enemy;
         private NavMeshAgent navMeshAgent;
@@ -31,7 +31,6 @@ namespace CartoonZombieVR.Gameplay
         private void Update()
         {
             animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
-            PlayWalkingScream();
         }
 
         private void OnDisable()
@@ -83,30 +82,6 @@ namespace CartoonZombieVR.Gameplay
             }
 
             return false;
-        }
-
-        private void PlayWalkingScream()
-        {
-            if (walkingScreamAudioSource == null)
-            {
-                return;
-            }
-
-            if (navMeshAgent.velocity.magnitude == 0)
-            {
-                walkingScreamAudioSource.Stop();
-                return;
-            }
-
-            if (!walkingScreamAudioSource.isPlaying)
-            {
-                walkingScreamAudioSource.clip = enemy.typeConfig.audioWalkingScreamClip;
-                walkingScreamAudioSource.pitch = AudioHelper.GetRandomPitch(
-                    enemy.typeConfig.audioWalkingScreamPitchOriginal,
-                    enemy.typeConfig.audioWalkingScreamPitchRange
-                );
-                walkingScreamAudioSource.Play();
-            }
         }
 
         private void UpdateNavMeshFromConfig()

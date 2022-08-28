@@ -42,10 +42,17 @@ MonoBehaviour:
   audioRiseClip: {fileID: 8300000, guid: e66b136e063cc4049b96679b13228187, type: 3}
   audioRisePitchOriginal: 1
   audioRisePitchRange: 0.1
-  audioRiseMixerGroup: {fileID: 232995180429979400, guid: 00d2e0610f9fd8243bbc165414c75c1a,
+  audioRiseMixerGroup: {fileID: 1826730716963278382, guid: 00d2e0610f9fd8243bbc165414c75c1a,
     type: 2}
   audioWalkingScreamClip: {fileID: 8300000, guid: 10732d0c2b844ae4c9ce62eab3a4c9b3,
     type: 3}
   audioWalkingScreamPitchOriginal: 0.5
   audioWalkingScreamPitchRange: 0.1
-  audioWalkingScreamMixerGroup: {fileID: 0}
+  audioWalkingScreamMixerGroup: {fileID: 1826730716963278382, guid: 00d2e0610f9fd8243bbc165414c75c1a,
+    type: 2}
+  audioDeathScreamClip: {fileID: 8300000, guid: 5cd921b91deac4f47b05c451951f7a53,
+    type: 3}
+  audioDeathScreamPitchOriginal: 0.5
+  audioDeathScreamPitchRange: 0.1
+  audioDeathScreamMixerGroup: {fileID: 1826730716963278382, guid: 00d2e0610f9fd8243bbc165414c75c1a,
+    type: 2}

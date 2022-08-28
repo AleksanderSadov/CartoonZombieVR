@@ -1,38 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!244 &-7326085080306648311
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: b687764d7512d044db6aaf59952ae492
-  m_EffectName: Attenuation
-  m_MixLevel: cd1e1e81dc34e3e49bf5812f9c073aeb
-  m_Parameters: []
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
---- !u!243 &-742203760525186384
-AudioMixerGroupController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ZombieWalkingScream
-  m_AudioMixer: {fileID: 24100000}
-  m_GroupID: a85266b9093af8343a39112c8808cb6e
-  m_Children: []
-  m_Volume: 33db95c59f01db7478b512ceedd510cd
-  m_Pitch: 91f6457c5c92cdc468858400bce9c23e
-  m_Send: 00000000000000000000000000000000
-  m_Effects:
-  - {fileID: 6847426588376342483}
-  m_UserColorIndex: 0
-  m_Mute: 0
-  m_Solo: 0
-  m_BypassEffects: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -52,9 +19,8 @@ AudioMixerController:
   m_ExposedParameters: []
   m_AudioMixerGroupViews:
   - guids:
-    - 040123427aa5f0a4cb22de6fa0b1333f
-    - 52f1ef4268119da4cbba4a31a78d43ea
-    - a85266b9093af8343a39112c8808cb6e
+    - 7366d4b306ee628429913f79b496ee03
+    - 9ceecd4514714404199a232188566db6
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -66,12 +32,11 @@ AudioMixerGroupController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: 040123427aa5f0a4cb22de6fa0b1333f
+  m_GroupID: 7366d4b306ee628429913f79b496ee03
   m_Children:
-  - {fileID: 232995180429979400}
-  - {fileID: -742203760525186384}
-  m_Volume: f92a2fedceb1222428e7277549f79c29
-  m_Pitch: f137336349e115f4da51e23d01d2cf18
+  - {fileID: 1826730716963278382}
+  m_Volume: 58c04acbecfb1e54a9d68cae12cdfa1c
+  m_Pitch: b50ded8a9c714f04095c4b7eddada546
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
@@ -86,9 +51,9 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_EffectID: 5b7c740493a809e41b59bee6dc632b78
+  m_EffectID: 0dc42c1ce1513384c95332ffb34e0899
   m_EffectName: Attenuation
-  m_MixLevel: 2cfcbf90bfef6184abe46a2d69ef2f07
+  m_MixLevel: d11dfefec82af384c9284129f7801dbe
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -101,40 +66,39 @@ AudioMixerSnapshotController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
-  m_SnapshotID: 4ca28e755d9c3554493e06b997eaf334
+  m_SnapshotID: 991fa502810ed8745b5362fbbbf399f0
   m_FloatValues:
-    33db95c59f01db7478b512ceedd510cd: -24.900742
-    03bba51db03b1ae4aad4a06185116b03: -14.816608
+    f95c4661505d7534194411a61b425782: -19.928473
   m_TransitionOverrides: {}
---- !u!243 &232995180429979400
+--- !u!243 &1826730716963278382
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ZombieRise
+  m_Name: Enemy Sound Effects
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: 52f1ef4268119da4cbba4a31a78d43ea
+  m_GroupID: 9ceecd4514714404199a232188566db6
   m_Children: []
-  m_Volume: 03bba51db03b1ae4aad4a06185116b03
-  m_Pitch: 816ae635beb17174d8bcc6bd88625dc7
+  m_Volume: f95c4661505d7534194411a61b425782
+  m_Pitch: 7eb711d62ace56447b87cab1ea7e9689
   m_Send: 00000000000000000000000000000000
   m_Effects:
-  - {fileID: -7326085080306648311}
+  - {fileID: 7342329343244055414}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
---- !u!244 &6847426588376342483
+--- !u!244 &7342329343244055414
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_EffectID: 3b20b671877091746a7203920a8cf235
+  m_EffectID: 2953629e0e898ae41a3eff6e5a382e97
   m_EffectName: Attenuation
-  m_MixLevel: 4309657e76146e84aa26bb6474ce4292
+  m_MixLevel: c615e255087298644a06afd76934a1d5
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

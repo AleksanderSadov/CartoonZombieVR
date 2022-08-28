@@ -21,8 +21,6 @@ namespace CartoonZombieVR.Gameplay
         public bool isTargetInAttackRange => sightSensor.isTargetInAttackRange;
         public bool isTargetInAttackAngle => sightSensor.isTargetInAttackAngle;
 
-        public AudioSource riseAudioSource;
-
         public UnityAction OnDeath;
 
         private Enemy enemy;
@@ -36,6 +34,7 @@ namespace CartoonZombieVR.Gameplay
         private SkinnedMeshRenderer skinnedMeshRenderer;
         private Color originalEnemyColor;
         private CapsuleCollider hitCollider;
+        private AudioSource audioSource;
 
         private void Awake()
         {
@@ -49,7 +48,7 @@ namespace CartoonZombieVR.Gameplay
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             originalEnemyColor = skinnedMeshRenderer.material.color;
             hitCollider = GetComponent<CapsuleCollider>();
-            riseAudioSource = GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnEnable()
@@ -58,6 +57,11 @@ namespace CartoonZombieVR.Gameplay
             health.OnDeath += OnHealthDeath;
             enemy.OnEnemyTypeChanged += UpdateHealthFromConfig;
             UpdateHealthFromConfig();
+        }
+
+        private void Update()
+        {
+            PlayWalkingScream();
         }
 
         private void OnDisable()
@@ -132,6 +136,7 @@ namespace CartoonZombieVR.Gameplay
         private void OnHealthDeath()
         {
             animator.SetTrigger("Die");
+            PlayDeathScream();
             StopAttack();
             ResetDestination();
             DisableNavAgent();
@@ -159,13 +164,13 @@ namespace CartoonZombieVR.Gameplay
                 hitCollider.enabled = false;
             }
 
-            riseAudioSource.clip = enemy.typeConfig.audioRiseClip;
-            riseAudioSource.pitch = AudioHelper.GetRandomPitch(
+            audioSource.clip = enemy.typeConfig.audioRiseClip;
+            audioSource.pitch = AudioHelper.GetRandomPitch(
                 enemy.typeConfig.audioRisePitchOriginal,
                 enemy.typeConfig.audioRisePitchRange
             );
-            riseAudioSource.loop = true;
-            riseAudioSource.Play();
+            audioSource.loop = true;
+            audioSource.Play();
         }
 
         private void OnRiseEndTest(AnimationEvent animationEvent)
@@ -176,7 +181,41 @@ namespace CartoonZombieVR.Gameplay
                 hitCollider.enabled = true;
             }
 
-            riseAudioSource.Stop();
+            audioSource.loop = false;
+            audioSource.Stop();
+        }
+
+        private void PlayWalkingScream()
+        {
+            if (movement.isMoving)
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = enemy.typeConfig.audioWalkingScreamClip;
+                    audioSource.pitch = AudioHelper.GetRandomPitch(
+                        enemy.typeConfig.audioWalkingScreamPitchOriginal,
+                        enemy.typeConfig.audioWalkingScreamPitchRange
+                    );
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                if (audioSource.clip == enemy.typeConfig.audioWalkingScreamClip)
+                {
+                    audioSource.Stop();
+                }
+            }
+        }
+
+        private void PlayDeathScream()
+        {
+            audioSource.clip = enemy.typeConfig.audioDeathScreamClip;
+            audioSource.pitch = AudioHelper.GetRandomPitch(
+                enemy.typeConfig.audioDeathScreamPitchOriginal,
+                enemy.typeConfig.audioDeathScreamPitchRange
+            );
+            audioSource.Play();
         }
     }
 }
