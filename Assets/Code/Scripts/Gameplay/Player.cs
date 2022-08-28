@@ -10,7 +10,6 @@ namespace CartoonZombieVR.Gameplay
 {
     public class Player : MonoBehaviour
     {
-        public PlayerConfig playerConfig;
         public Volume playerGetHitVignetteVolume;
 
         [Header("LeftHand")]
@@ -20,6 +19,7 @@ namespace CartoonZombieVR.Gameplay
         public XRRayInteractor rightHandRayInteractor;
         public XRRayInteractor rightHandTeleportInteractor;
 
+        private PlayerConfig playerConfig;
         private bool isConfigDirty = false;
         private ActionBasedSnapTurnProvider snapTurnProvider;
         private Health health;
@@ -30,6 +30,7 @@ namespace CartoonZombieVR.Gameplay
 
         private void Awake()
         {
+            playerConfig = FindObjectOfType<ApplicationManager>().applicationConfig.playerConfig;
             health = GetComponent<Health>();
             snapTurnProvider = GetComponent<ActionBasedSnapTurnProvider>();
             VolumeProfile profile = playerGetHitVignetteVolume.sharedProfile;

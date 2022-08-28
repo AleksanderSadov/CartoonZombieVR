@@ -6,15 +6,18 @@ namespace CartoonZombieVR.Gameplay
 {
     public class GameManager : MonoBehaviour
     {
-        public GameConfig gameConfig;
         public Timer gameTimer;
         public SpawnManager spawnManager;
         public GameObject TutorialRing;
         public GameObject TutorialUI;
         public GameObject TimerUI;
 
+        private GameConfig gameConfig;
+
         private void Start()
         {
+            gameConfig = FindObjectOfType<ApplicationManager>().applicationConfig.gameConfig;
+
             if (gameTimer != null || gameConfig != null)
             {
                 gameTimer.SetTimerDuration(gameConfig.gameTimerDurationInSeconds);
