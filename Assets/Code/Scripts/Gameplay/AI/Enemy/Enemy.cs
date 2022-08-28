@@ -32,7 +32,6 @@ namespace CartoonZombieVR.Gameplay
 
         private void OnEnable()
         {
-            Debug.Log("OnEnable called");
             typeConfig.OnConfigValuesChanged += MarkConfigDirty;
             previousTypeConfig = typeConfig;
             UpdateEnemyFromConfig();
@@ -45,7 +44,11 @@ namespace CartoonZombieVR.Gameplay
 
         private void Update()
         {
-            if (isConfigDirty || typeConfig != previousTypeConfig)
+            if (
+                isConfigDirty
+                || typeConfig != previousTypeConfig
+                || transform.localScale != typeConfig.scale
+            )
             {
                 previousTypeConfig.OnConfigValuesChanged -= MarkConfigDirty;
                 typeConfig.OnConfigValuesChanged += MarkConfigDirty;
@@ -70,7 +73,6 @@ namespace CartoonZombieVR.Gameplay
 
         private void UpdateModelSize()
         {
-            Debug.Log("typeConfig.scale: " + typeConfig.scale);
             transform.localScale = typeConfig.scale;
         }
 
