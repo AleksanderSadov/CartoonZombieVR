@@ -20,42 +20,51 @@ namespace CartoonZombieVR.Gameplay
         NormalHead,
     }
 
+    [ExecuteInEditMode]
     public class Enemy : MonoBehaviour
     {
         public EnemyTypeConfig typeConfig;
         public SkinnedMeshRenderer skinnedMeshRenderer;
-        public UnityAction OnConfigValuesChanged;
+        public UnityAction OnEnemyTypeChanged;
 
         private EnemyTypeConfig previousTypeConfig = null;
+        private bool isConfigDirty = false;
 
-        private void Start()
+        private void OnEnable()
         {
-            typeConfig.OnConfigValuesChanged += UpdateEnemyFromConfig;
+            typeConfig.OnConfigValuesChanged += MarkConfigDirty;
             previousTypeConfig = typeConfig;
             UpdateEnemyFromConfig();
         }
 
+        private void OnDisable()
+        {
+            typeConfig.OnConfigValuesChanged -= MarkConfigDirty;
+        }
+
         private void Update()
         {
-            if (typeConfig != previousTypeConfig)
+            if (isConfigDirty)
             {
-                previousTypeConfig.OnConfigValuesChanged -= UpdateEnemyFromConfig;
-                typeConfig.OnConfigValuesChanged += UpdateEnemyFromConfig;
+                previousTypeConfig.OnConfigValuesChanged -= MarkConfigDirty;
+                typeConfig.OnConfigValuesChanged += MarkConfigDirty;
                 previousTypeConfig = typeConfig;
+                isConfigDirty = false;
+
                 UpdateEnemyFromConfig();
             }
         }
 
-        private void OnDestroy()
+        private void MarkConfigDirty()
         {
-            typeConfig.OnConfigValuesChanged -= UpdateEnemyFromConfig;
+            isConfigDirty = true;
         }
 
         private void UpdateEnemyFromConfig()
         {
             UpdateModelSize();
             UpdateBlendShapes();
-            OnConfigValuesChanged?.Invoke();
+            OnEnemyTypeChanged?.Invoke();
         }
 
         private void UpdateModelSize()
@@ -82,6 +91,14 @@ namespace CartoonZombieVR.Gameplay
             skinnedMeshRenderer.SetBlendShapeWeight((int)EnemyBlendShapes.RightSidedHead, typeConfig.blendShapeRightSidedHead);
             skinnedMeshRenderer.SetBlendShapeWeight((int)EnemyBlendShapes.LemonHead, typeConfig.blendShapeLemonHead);
             skinnedMeshRenderer.SetBlendShapeWeight((int)EnemyBlendShapes.NormalHead, typeConfig.blendShapeNormalHead);
+        }
+
+        private void OnValidate()
+        {
+            if (typeConfig != previousTypeConfig)
+            {
+                MarkConfigDirty();
+            }
         }
     }
 }

@@ -38,19 +38,21 @@ namespace CartoonZombieVR.Gameplay
             health = GetComponent<Health>();
             findTargetSensor = GetComponent<FindTargetSensor>();
             sightSensor = GetComponent<SightSensor>();
+        }
 
+        private void OnEnable()
+        {
             health.OnTakeDamage += OnTakeDamage;
             health.OnDeath += OnHealthDeath;
-
-            enemy.OnConfigValuesChanged += UpdateHealthFromConfig;
+            enemy.OnEnemyTypeChanged += UpdateHealthFromConfig;
             UpdateHealthFromConfig();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             health.OnTakeDamage -= OnTakeDamage;
             health.OnDeath -= OnHealthDeath;
-            enemy.OnConfigValuesChanged -= UpdateHealthFromConfig;
+            enemy.OnEnemyTypeChanged -= UpdateHealthFromConfig;
         }
 
         public void FindTarget() => currentTarget = findTargetSensor.FindRandomTarget();

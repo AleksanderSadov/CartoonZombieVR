@@ -17,7 +17,11 @@ namespace CartoonZombieVR.Gameplay
             enemy = GetComponent<Enemy>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
-            enemy.OnConfigValuesChanged += UpdateNavMeshFromConfig;
+        }
+
+        private void OnEnable()
+        {
+            enemy.OnEnemyTypeChanged += UpdateNavMeshFromConfig;
             UpdateNavMeshFromConfig();
         }
 
@@ -26,9 +30,9 @@ namespace CartoonZombieVR.Gameplay
             animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
-            enemy.OnConfigValuesChanged -= UpdateNavMeshFromConfig;
+            enemy.OnEnemyTypeChanged -= UpdateNavMeshFromConfig;
         }
 
         public void SetNavDestination(Vector3 destination)
