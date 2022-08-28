@@ -7,6 +7,7 @@ namespace CartoonZombieVR.Gameplay
     {
         public enum AIState
         {
+            Rising,
             Idle,
             FindTarget,
             Follow,
@@ -26,7 +27,7 @@ namespace CartoonZombieVR.Gameplay
 
         private void OnEnable()
         {
-            aiState = AIState.FindTarget;
+            aiState = AIState.Rising;
         }
 
         private void Update()
@@ -54,6 +55,12 @@ namespace CartoonZombieVR.Gameplay
         {
             switch (aiState)
             {
+                case AIState.Rising:
+                    if (enemyController.hasRisen)
+                    {
+                        aiState = AIState.FindTarget;
+                    }
+                    break;
                 case AIState.FindTarget:
                     if (enemyController.currentTarget != null)
                     {

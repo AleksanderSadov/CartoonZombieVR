@@ -3350,6 +3350,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerXR
       objectReference: {fileID: 0}
+    - target: {fileID: 5043881784775630849, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
+        type: 3}
+      propertyPath: playerConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 74d8ac19567f4d34f97f062b387cdb97,
+        type: 2}
     - target: {fileID: 6041259964107113723, guid: 0ee66dd6f0c0fe24e9f117828be927c4,
         type: 3}
       propertyPath: m_StartingSelectedInteractable

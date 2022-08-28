@@ -15,6 +15,7 @@ namespace CartoonZombieVR.Gameplay
     public class EnemyController : MonoBehaviour
     {
         public GameObject currentTarget;
+        public bool hasRisen = false;
 
         public bool isTargetInAttackRange => sightSensor.isTargetInAttackRange;
         public bool isTargetInAttackAngle => sightSensor.isTargetInAttackAngle;
@@ -29,7 +30,7 @@ namespace CartoonZombieVR.Gameplay
         private FindTargetSensor findTargetSensor;
         private SightSensor sightSensor;
         private Coroutine changeEnemyColorCoroutine;
-        private SkinnedMeshRenderer renderer;
+        private SkinnedMeshRenderer skinnedMeshRenderer;
         private Color originalEnemyColor;
 
         private void Awake()
@@ -41,8 +42,8 @@ namespace CartoonZombieVR.Gameplay
             health = GetComponent<Health>();
             findTargetSensor = GetComponent<FindTargetSensor>();
             sightSensor = GetComponent<SightSensor>();
-            renderer = GetComponentInChildren<SkinnedMeshRenderer>();
-            originalEnemyColor = renderer.material.color;
+            skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            originalEnemyColor = skinnedMeshRenderer.material.color;
         }
 
         private void OnEnable()
@@ -114,9 +115,9 @@ namespace CartoonZombieVR.Gameplay
                 StopCoroutine(changeEnemyColorCoroutine);
             }
 
-            renderer.material.color = enemy.typeConfig.generalConfig.flashOnGetHitColor;
+            skinnedMeshRenderer.material.color = enemy.typeConfig.generalConfig.flashOnGetHitColor;
             changeEnemyColorCoroutine = StartCoroutine(ChangeEnemyColor(
-                renderer,
+                skinnedMeshRenderer,
                 originalEnemyColor,
                 enemy.typeConfig.generalConfig.flashOnGetHitDuration
             ));
@@ -142,6 +143,16 @@ namespace CartoonZombieVR.Gameplay
         private void UpdateHealthFromConfig()
         {
             health.SetInitialHealth(enemy.typeConfig.health);
+        }
+
+        private void OnRiseBegin(AnimationEvent animationEvent)
+        {
+            hasRisen = false;
+        }
+
+        private void OnRiseEndTest(AnimationEvent animationEvent)
+        {
+            hasRisen = true;
         }
     }
 }
