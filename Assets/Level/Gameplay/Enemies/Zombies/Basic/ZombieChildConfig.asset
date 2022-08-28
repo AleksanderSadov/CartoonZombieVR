@@ -44,3 +44,9 @@ MonoBehaviour:
   audioRisePitchRange: 0.1
   audioRiseMixerGroup: {fileID: 232995180429979400, guid: 00d2e0610f9fd8243bbc165414c75c1a,
     type: 2}
+  audioWalkingScreamClip: {fileID: 8300000, guid: 10732d0c2b844ae4c9ce62eab3a4c9b3,
+    type: 3}
+  audioWalkingScreamPitchOriginal: 1.6
+  audioWalkingScreamPitchRange: 0.1
+  audioWalkingScreamMixerGroup: {fileID: -742203760525186384, guid: 00d2e0610f9fd8243bbc165414c75c1a,
+    type: 2}

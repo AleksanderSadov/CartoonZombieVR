@@ -161,7 +161,8 @@ namespace CartoonZombieVR.Gameplay
 
             riseAudioSource.clip = enemy.typeConfig.audioRiseClip;
             riseAudioSource.pitch = AudioHelper.GetRandomPitch(
-                enemy.typeConfig.audioRisePitchOriginal, enemy.typeConfig.audioRisePitchRange
+                enemy.typeConfig.audioRisePitchOriginal,
+                enemy.typeConfig.audioRisePitchRange
             );
             riseAudioSource.loop = true;
             riseAudioSource.Play();

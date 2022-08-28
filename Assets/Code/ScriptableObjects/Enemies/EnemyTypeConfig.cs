@@ -72,10 +72,16 @@ namespace CartoonZombieVR.ScriptableObjects
         public float blendShapeNormalHead = 0;
 
         [Header("Audio")]
+        [Header("Audio Rise")]
         public AudioClip audioRiseClip;
         public float audioRisePitchOriginal = 1;
         public float audioRisePitchRange = 0;
         public AudioMixerGroup audioRiseMixerGroup;
+        [Header("Audio Walking Scream")]
+        public AudioClip audioWalkingScreamClip;
+        public float audioWalkingScreamPitchOriginal = 1;
+        public float audioWalkingScreamPitchRange = 0;
+        public AudioMixerGroup audioWalkingScreamMixerGroup;
     }
 }
 
