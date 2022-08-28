@@ -32,6 +32,7 @@ namespace CartoonZombieVR.Gameplay
         private Coroutine changeEnemyColorCoroutine;
         private SkinnedMeshRenderer skinnedMeshRenderer;
         private Color originalEnemyColor;
+        private CapsuleCollider hitCollider;
 
         private void Awake()
         {
@@ -44,6 +45,7 @@ namespace CartoonZombieVR.Gameplay
             sightSensor = GetComponent<SightSensor>();
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             originalEnemyColor = skinnedMeshRenderer.material.color;
+            hitCollider = GetComponent<CapsuleCollider>();
         }
 
         private void OnEnable()
@@ -148,11 +150,19 @@ namespace CartoonZombieVR.Gameplay
         private void OnRiseBegin(AnimationEvent animationEvent)
         {
             hasRisen = false;
+            if (hitCollider != null)
+            {
+                hitCollider.enabled = false;
+            }
         }
 
         private void OnRiseEndTest(AnimationEvent animationEvent)
         {
             hasRisen = true;
+            if (hitCollider != null)
+            {
+                hitCollider.enabled = true;
+            }
         }
     }
 }
