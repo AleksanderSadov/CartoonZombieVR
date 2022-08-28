@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using CartoonZombieVR.Gameplay;
+using CartoonZombieVR.General;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -6,48 +8,37 @@ namespace CartoonZombieVR.UI
 {
     public class DisplayFPS : MonoBehaviour
     {
-        const float goodFpsThreshold = 72;
-        const float badFpsThreshold = 50;
-
-        public float updateInteval = 0.5f;
-
+        private ApplicationManager applicationManager;
+        private FPSCounter fpsCounter;
         private TextMeshProUGUI textOutput = null;
-
-        private float deltaTime = 0.0f;
-        private float milliseconds = 0.0f;
-        private int framesPerSecond = 0;
+        private Coroutine showFpsCoroutine;
 
         private void Awake()
         {
+            applicationManager = FindObjectOfType<ApplicationManager>();
+            fpsCounter = GetComponent<FPSCounter>();
             textOutput = GetComponentInChildren<TextMeshProUGUI>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            StartCoroutine(ShowFPS());
+            showFpsCoroutine = StartCoroutine(ShowFPS());
         }
 
-        private void Update()
+        private void OnDisable()
         {
-            CalculateCurrentFPS();
-        }
-
-        private void CalculateCurrentFPS()
-        {
-            deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
-            milliseconds = (deltaTime * 1000.0f);
-            framesPerSecond = (int)(1.0f / deltaTime);
+            StopCoroutine(showFpsCoroutine);
         }
 
         private IEnumerator ShowFPS()
         {
             while (true)
             {
-                if (framesPerSecond >= goodFpsThreshold)
+                if (fpsCounter.framesPerSecond >= applicationManager.applicationConfig.fpsGoodThreshold)
                 {
                     textOutput.color = Color.green;
                 }
-                else if (framesPerSecond >= badFpsThreshold)
+                else if (fpsCounter.framesPerSecond >= applicationManager.applicationConfig.fpsBadThreshold)
                 {
                     textOutput.color = Color.yellow;
                 }
@@ -56,8 +47,8 @@ namespace CartoonZombieVR.UI
                     textOutput.color = Color.red;
                 }
 
-                textOutput.text = "FPS:" + framesPerSecond + "\n" + "MS:" + milliseconds.ToString(".0");
-                yield return new WaitForSeconds(updateInteval);
+                textOutput.text = "FPS:" + fpsCounter.framesPerSecond + "\n" + "MS:" + fpsCounter.milliseconds.ToString(".0");
+                yield return new WaitForSeconds(applicationManager.applicationConfig.fpsUpdateInteval);
             }
         }
     }

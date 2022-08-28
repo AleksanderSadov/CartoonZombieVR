@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 85097727426779472}
   - component: {fileID: 85097727426779473}
   - component: {fileID: 85097727426779474}
+  - component: {fileID: -582040367648357032}
   - component: {fileID: 3790293934869226752}
   m_Layer: 5
   m_Name: FPS Overlay UI
@@ -103,6 +104,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &-582040367648357032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85097727426779475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e798a0d19a84d5a4eb9d4e76118cef88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3790293934869226752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7f9dca2a080f940bc5a47448c5a849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateInteval: 0.5
 --- !u!1 &85097728234150911
 GameObject:
   m_ObjectHideFlags: 0
