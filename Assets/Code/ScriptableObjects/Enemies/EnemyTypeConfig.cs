@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 
 namespace CartoonZombieVR.ScriptableObjects
@@ -69,6 +70,12 @@ namespace CartoonZombieVR.ScriptableObjects
         public float blendShapeLemonHead = 0;
         [Range(0, 100)]
         public float blendShapeNormalHead = 0;
+
+        [Header("Audio")]
+        public AudioClip audioRiseClip;
+        public float audioRisePitchOriginal = 1;
+        public float audioRisePitchRange = 0;
+        public AudioMixerGroup audioRiseMixerGroup;
     }
 }
 

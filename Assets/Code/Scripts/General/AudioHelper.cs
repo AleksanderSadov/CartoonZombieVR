@@ -29,7 +29,7 @@ namespace CartoonZombieVR.General
 
             if (pitchRange != 0)
             {
-                audioSource.pitch = Random.Range(audioSource.pitch - pitchRange, audioSource.pitch + pitchRange);
+                audioSource.pitch = GetRandomPitch(audioSource.pitch, pitchRange);
             }
 
             audioSource.clip = clip;
@@ -39,6 +39,11 @@ namespace CartoonZombieVR.General
 
             Object.Destroy(gameObject, clip.length *
                 (Time.timeScale < 0.009999999776482582 ? 0.01f : Time.timeScale));
+        }
+
+        public static float GetRandomPitch(float originalPitch, float pitchRange)
+        {
+            return Random.Range(originalPitch - pitchRange, originalPitch + pitchRange);
         }
     }
 }

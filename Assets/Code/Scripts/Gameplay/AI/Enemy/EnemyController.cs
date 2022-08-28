@@ -1,3 +1,4 @@
+using CartoonZombieVR.General;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,6 +20,8 @@ namespace CartoonZombieVR.Gameplay
 
         public bool isTargetInAttackRange => sightSensor.isTargetInAttackRange;
         public bool isTargetInAttackAngle => sightSensor.isTargetInAttackAngle;
+
+        public AudioSource riseAudioSource;
 
         public UnityAction OnDeath;
 
@@ -46,6 +49,7 @@ namespace CartoonZombieVR.Gameplay
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             originalEnemyColor = skinnedMeshRenderer.material.color;
             hitCollider = GetComponent<CapsuleCollider>();
+            riseAudioSource = GetComponent<AudioSource>();
         }
 
         private void OnEnable()
@@ -154,6 +158,13 @@ namespace CartoonZombieVR.Gameplay
             {
                 hitCollider.enabled = false;
             }
+
+            riseAudioSource.clip = enemy.typeConfig.audioRiseClip;
+            riseAudioSource.pitch = AudioHelper.GetRandomPitch(
+                enemy.typeConfig.audioRisePitchOriginal, enemy.typeConfig.audioRisePitchRange
+            );
+            riseAudioSource.loop = true;
+            riseAudioSource.Play();
         }
 
         private void OnRiseEndTest(AnimationEvent animationEvent)
@@ -163,6 +174,8 @@ namespace CartoonZombieVR.Gameplay
             {
                 hitCollider.enabled = true;
             }
+
+            riseAudioSource.Stop();
         }
     }
 }
