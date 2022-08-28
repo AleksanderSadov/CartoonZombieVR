@@ -44,7 +44,7 @@ namespace CartoonZombieVR.Gameplay
 
         private void Update()
         {
-            if (isConfigDirty)
+            if (isConfigDirty || typeConfig != previousTypeConfig)
             {
                 previousTypeConfig.OnConfigValuesChanged -= MarkConfigDirty;
                 typeConfig.OnConfigValuesChanged += MarkConfigDirty;
@@ -91,14 +91,6 @@ namespace CartoonZombieVR.Gameplay
             skinnedMeshRenderer.SetBlendShapeWeight((int)EnemyBlendShapes.RightSidedHead, typeConfig.blendShapeRightSidedHead);
             skinnedMeshRenderer.SetBlendShapeWeight((int)EnemyBlendShapes.LemonHead, typeConfig.blendShapeLemonHead);
             skinnedMeshRenderer.SetBlendShapeWeight((int)EnemyBlendShapes.NormalHead, typeConfig.blendShapeNormalHead);
-        }
-
-        private void OnValidate()
-        {
-            if (typeConfig != previousTypeConfig)
-            {
-                MarkConfigDirty();
-            }
         }
     }
 }
