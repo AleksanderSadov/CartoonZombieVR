@@ -16,3 +16,7 @@ MonoBehaviour:
     type: 3}
   launchSpeed: 1000
   reloadDuration: 0.25
+  audioFireClip: {fileID: 8300000, guid: 2559d3d57dc2e8b4e9427c76cfbe1818, type: 3}
+  audioFirePitchRange: 0.1
+  audioFireMixerGroup: {fileID: 7598183717004070666, guid: 4587e6755bfa5c7449d2cf584d856df4,
+    type: 2}

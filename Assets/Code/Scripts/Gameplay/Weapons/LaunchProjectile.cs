@@ -1,3 +1,4 @@
+using CartoonZombieVR.General;
 using CartoonZombieVR.ScriptableObjects;
 using System.Collections;
 using UnityEngine;
@@ -44,6 +45,13 @@ namespace CartoonZombieVR.Gameplay
                 isReloading = true;
                 StartCoroutine(WaitForReload(weaponConfig.reloadDuration));
             }
+
+            AudioHelper.PlayClipAtPoint(
+                weaponConfig.audioFireClip,
+                transform.position,
+                weaponConfig.audioFirePitchRange,
+                weaponConfig.audioFireMixerGroup
+            );
         }
 
         void ApplyForce(Rigidbody rigidBody)
