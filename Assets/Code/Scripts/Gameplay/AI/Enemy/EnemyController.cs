@@ -28,6 +28,9 @@ namespace CartoonZombieVR.Gameplay
         private Health health;
         private FindTargetSensor findTargetSensor;
         private SightSensor sightSensor;
+        private Coroutine changeEnemyColorCoroutine;
+        private SkinnedMeshRenderer renderer;
+        private Color originalEnemyColor;
 
         private void Awake()
         {
@@ -38,6 +41,8 @@ namespace CartoonZombieVR.Gameplay
             health = GetComponent<Health>();
             findTargetSensor = GetComponent<FindTargetSensor>();
             sightSensor = GetComponent<SightSensor>();
+            renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            originalEnemyColor = renderer.material.color;
         }
 
         private void OnEnable()
@@ -104,9 +109,17 @@ namespace CartoonZombieVR.Gameplay
         {
             animator.SetTrigger("TakeDamage");
 
-            SkinnedMeshRenderer renderer = GetComponentInChildren<SkinnedMeshRenderer>();
-            StartCoroutine(ChangeEnemyColor(renderer, renderer.material.color, enemy.typeConfig.generalConfig.flashOnGetHitDuration));
+            if (changeEnemyColorCoroutine != null)
+            {
+                StopCoroutine(changeEnemyColorCoroutine);
+            }
+
             renderer.material.color = enemy.typeConfig.generalConfig.flashOnGetHitColor;
+            changeEnemyColorCoroutine = StartCoroutine(ChangeEnemyColor(
+                renderer,
+                originalEnemyColor,
+                enemy.typeConfig.generalConfig.flashOnGetHitDuration
+            ));
         }
 
         private void OnHealthDeath()
