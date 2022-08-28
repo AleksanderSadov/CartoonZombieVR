@@ -2418,11 +2418,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerLauncherWeaponLeft
       objectReference: {fileID: 0}
-    - target: {fileID: 1798630420414892496, guid: 719dcbfecb415dc4e9c6ee9b53aa632a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6346910682869327282, guid: 719dcbfecb415dc4e9c6ee9b53aa632a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2477,11 +2472,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6833134614885679223, guid: 719dcbfecb415dc4e9c6ee9b53aa632a,
-        type: 3}
-      propertyPath: m_InteractionLayers.m_Bits
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719dcbfecb415dc4e9c6ee9b53aa632a, type: 3}
@@ -5117,11 +5107,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerLauncherWeaponRight
       objectReference: {fileID: 0}
-    - target: {fileID: 1798630420414892496, guid: 719dcbfecb415dc4e9c6ee9b53aa632a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6346910682869327282, guid: 719dcbfecb415dc4e9c6ee9b53aa632a,
         type: 3}
       propertyPath: m_RootOrder
@@ -5176,11 +5161,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6833134614885679223, guid: 719dcbfecb415dc4e9c6ee9b53aa632a,
-        type: 3}
-      propertyPath: m_InteractionLayers.m_Bits
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719dcbfecb415dc4e9c6ee9b53aa632a, type: 3}

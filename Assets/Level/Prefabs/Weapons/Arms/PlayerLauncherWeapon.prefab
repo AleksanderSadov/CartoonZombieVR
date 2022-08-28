@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1293415159712760419}
   - component: {fileID: 1293415159712760416}
   - component: {fileID: 1293415159712760417}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SphereProjectile LARGE
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8915932477948298317}
   - component: {fileID: 3960440601118854084}
   - component: {fileID: 1600022293048393044}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 8455234915571985198}
   - component: {fileID: 7690469146365585323}
   - component: {fileID: 8729161168861613158}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerLauncherWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 2
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2190765410863414049}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5890465337102572530}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Launch Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 7707142460895701081}
   - component: {fileID: 1534676801218693887}
   - component: {fileID: 6910192964930598352}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Launcher Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5579886936090306813}
   - component: {fileID: 1985965726463996551}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Launcher (Visuals)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4654714136470950323}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ball Scale OUT and IN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 8707778746301734508}
   - component: {fileID: 5967274657701999930}
   - component: {fileID: 3104589899543203055}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Launcher Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 4543652225057793755}
   - component: {fileID: 1567005464358250268}
   - component: {fileID: 690109938574004001}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 8503779463869034077}
   - component: {fileID: 8503779463869034076}
   - component: {fileID: 8503779463869034082}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HoverStateVisuals - Only Hover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
