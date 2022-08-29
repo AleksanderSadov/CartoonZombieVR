@@ -39,6 +39,10 @@ Scriptable objects with game configuration are available at [/Assets/Level/Gamep
 
 Can configure game length, enemy waves, player controls, enemies stats and skin mesh and etc.
 
+## Level Design
+
+Level environment built with ProBuilder and PolyBrush
+
 # Testing
 
 Game mainly targeted for free-roam but can enable teleport for easy testing
